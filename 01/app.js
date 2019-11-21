@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     const divList = document.querySelectorAll('div');
-    
     setBorderColorAsync(divList[0], 'red', setBlueBorder);
 }
 
@@ -21,7 +20,6 @@ function printFinish(){
 function setBorderColorAsync(element, color, callback) {
     setTimeout(() => {
         element.style.border = `3px solid ${color}`;
-        childDivElement = element.querySelector('div');
-        callback(childDivElement);
+        callback(element.firstElementChild);
     }, Math.random() * 3000);
 }
