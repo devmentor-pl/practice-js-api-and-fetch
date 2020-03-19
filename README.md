@@ -1,28 +1,33 @@
-# [![](assets/img/logo-readme2.jpg)](https://devmentor.pl) &nbsp; JS Fetch & API
+# [![](assets/img/logo-readme2.jpg)](https://devmentor.pl) &nbsp; JavaScript: API & FETCH
 
-Umiejęność korzystania z API jest niezbędnym elementem pracy Front-end Developer-a.
+Umiejęność korzystania z *API* jest często wykorzystywaną umiejęnością w pracy Front-end Developer-a.
 
-Fetch jest rozwiązaniem, które pozwala nam wykonywać zapytania do API i pobierać dane, które potem możemy zaprezentować na naszej stronie.
+`fetch()` to rozwiązaniem, które pozwala nam wykonywać zapytania do *API* i pobierać dane, które potem możemy zaprezentować na naszej stronie.
 
-Fetch jest rozwiązaniem asynchronicznym dlatego wywołania zwrotne (ang. callback) powinny być Ci znane, jak również problemy z nimi związane tzw. [callback hell](http://callbackhell.com/).
+Wspomniana funkcja jest rozwiązaniem asynchronicznym dlatego wywołania zwrotne (ang. *callback*) powinny być Ci znane, jak również problemy z nimi związane np. [callback hell](http://callbackhell.com/).
 
-Fetch wykorzystuje w swojej implementacji obietnice (ang. Promise), które również nie powinny być Ci obce.
+`fetch()` wykorzystuje w swojej implementacji obietnice (ang. *Promise*), które również nie powinny być Ci obce.
 
 Opisywane wyżej zagadnia są niezbędne do wykonania zadań jakie są dostępne w tym repozytorium.
 
+&nbsp;
 
-> Zadania dostępne w tym repozytorium pozwolą zweryfikować Twoje umiejetności z tego zakresu. Ich poziom jest dostosowany pod osoby, które chcą znaleźć pierwszą pracę w zawodzie programisty JavaScript. Wykonanie każdego zadania bez problemów będzie oznaczać, że możesz przejść do następnych zagadnień.
+**Zadania:** :point_right: [:one:](./01) &nbsp; [:two:](./02) &nbsp; [:three:](./03) &nbsp; [:four:](./04) &nbsp; [:five:](./05) :triangular_flag_on_post:
 
-> Jeśli potrzebujesz materiałów do zadań to znajdziesz je na stronie [devmentor.pl](https://devmentor.pl)
+&nbsp;
+
+> :warning: Jeśli potrzebujesz materiałów do zadań to znajdziesz je na stronie :books:[devmentor.pl](https://devmentor.pl/p/html-and-css-rwd/)
+
+> :white_check_mark: Wykonanie każdego z zadań bez problemów będzie oznaczać, że jesteś gotowy, aby przejść do następnych zagadnień :arrow_right:
 
 ## Jak wykonać zadania?
 
-Jak pobierzemy pliki (o czym za chwilę) to należy realizować zadania zgodnie z numerami - od najniższego numeru do najwyższego. Poziom trudności stopniowo się zwiększa.
+Po pobraniu plików (o czym za chwilę) należy wykonywać zadania zgodnie z numerami - od najniższego numeru do najwyższego. Zgodnie z ich treścią, którą znajdziesz w pliku README.md w każdym z katalogów. Poziom trudności stopniowo się zwiększa.
 
 Mamy dwie ścieżki dla pobrania plików:
 
-* Chcę od razu przejść do zadań
-* Mam już doświadczenie z GitHub-em i GIT-em
+- Chcę od razu przejść do zadań
+- Mam już doświadczenie z GitHub-em i GIT-em
 
 ### Chcę od razu przejść do zadań
 
@@ -40,4 +45,4 @@ Dzieki temu rozwiązaniu będę mógł śledzić postępy Twojej pracy nad zadan
 
 &nbsp;
 
-> Powodzenia! Mateusz Bogolubow, [devmentor.pl](https://devmentor.pl)
+> Powodzenia! :zap: :zap: :zap: Mateusz Bogolubow, [devmentor.pl](https://devmentor.pl)
