@@ -1,6 +1,6 @@
-# [![](../assets/img/logo-readme2.jpg)](https://devmentor.pl) &nbsp; JS Fetch & API #01
+# [![](../assets/img/logo-readme2.jpg)](https://devmentor.pl) &nbsp; JavaScript: API & FETCH #02
 
-W pliku `app.js` ponownie masz przygotowany kod, który ustawia kolor obramowania dla wyszukanych `div`-ów. Tym razem jest on zabezpieczony przed podaniem nieprawidłowego elementu czy braku callback-a.
+W pliku `app.js` ponownie masz przygotowany kod, który ustawia kolor obramowania dla wyszukanych `div`-ów. Tym razem jest on zabezpieczony przed podaniem nieprawidłowego elementu czy braku *callback-a*.
 
 Twoim zadaniem jest przebudować funckję `setBorderColorAsync()` w taki sposób, aby realizowała to samo przy pomocy obietnic (`Promise`) tj. powinna zwracać obiekt utworzony przy pomocy `new Promise( (resolve, reject) => ...)`;
 

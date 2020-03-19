@@ -1,10 +1,10 @@
-# [![](../assets/img/logo-readme2.jpg)](https://devmentor.pl) &nbsp; JS Fetch #04
+# [![](../assets/img/logo-readme2.jpg)](https://devmentor.pl) &nbsp; JavaScript: API & FETCH #04
 
 W tym zadaniu musisz pobrać aktualną pogodę dla podanych w polu formularza współrzędnych. 
 
-Wykorzystaj do tego API o nazwie [DARK Sky](https://darksky.net/dev), które umożliwia dziennie 1000 odpytań w darmowym planie. 
+Wykorzystaj do tego *API* o nazwie [DARK Sky](https://darksky.net/dev), które umożliwia dziennie 1000 odpytań w darmowym planie. 
 
-Aby móc skorzystać z tego API musisz się [zarejestrować](https://darksky.net/dev/register), aby uzyskać `key`.
+Aby móc skorzystać z tego *API* musisz się [zarejestrować](https://darksky.net/dev/register), aby uzyskać `key`.
 
 Adres pod którym możemy pobierać dane o pogodzie to: `https://api.darksky.net/forecast/[key]/[latitude],[longitude`, gdzie:
 
