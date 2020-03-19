@@ -16,7 +16,7 @@ Opisywane wyżej zagadnia są niezbędne do wykonania zadań jakie są dostępne
 
 &nbsp;
 
-> :warning: Jeśli potrzebujesz materiałów do zadań to znajdziesz je na stronie :books:[devmentor.pl](https://devmentor.pl/p/html-and-css-rwd/)
+> :warning: Jeśli potrzebujesz materiałów do zadań to znajdziesz je na stronie :books:[devmentor.pl](https://devmentor.pl/p/js-api-and-fetch/)
 
 > :white_check_mark: Wykonanie każdego z zadań bez problemów będzie oznaczać, że jesteś gotowy, aby przejść do następnych zagadnień :arrow_right:
 

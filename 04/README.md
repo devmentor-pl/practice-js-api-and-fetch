@@ -1,5 +1,9 @@
 # [![](../assets/img/logo-readme2.jpg)](https://devmentor.pl) &nbsp; JavaScript: API & FETCH #04
 
+> :loudspeaker: Jeśli chciałbyś więcej tego typu zadań to zapraszam do :moneybag: [wsparcia mojego konta](https://github.com/sponsors/devmentor-pl)!
+
+&nbsp;
+
 W tym zadaniu musisz pobrać aktualną pogodę dla podanych w polu formularza współrzędnych. 
 
 Wykorzystaj do tego *API* o nazwie [DARK Sky](https://darksky.net/dev), które umożliwia dziennie 1000 odpytań w darmowym planie. 
@@ -18,3 +22,7 @@ Przykładowe współrzędne to:
 * **Wrocław**: 51.11, 17.022222
 
  Zapoznaj się z [dokumentacją](https://darksky.net/dev/docs), która prezentuje strukturę odpowiedzi. Znajdziesz tam także informacje jak pobierać dane w języku polskim.
+ 
+&nbsp;
+
+> :warning: Jeśli nie posiadasz materiałów do tego zadania to znajdziesz je na stronie [devmentor.pl](https://devmentor.pl/p/js-api-and-fetch/)

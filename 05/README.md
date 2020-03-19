@@ -1,5 +1,9 @@
 # [![](../assets/img/logo-readme2.jpg)](https://devmentor.pl) &nbsp; JavaScript: API & FETCH #05
 
+> :loudspeaker: Jeśli chciałbyś więcej tego typu zadań to zapraszam do :moneybag: [wsparcia mojego konta](https://github.com/sponsors/devmentor-pl)!
+
+&nbsp;
+
 W tym zadaniu będziesz potrzebować narzędzia [JSON Server](https://github.com/typicode/json-server), który uruchomi lokalne API na podstawie pliku `data.json`.
 
 We wspomnianym pliku znajdują sie już dane, które są ładowane do *HTML-a* za pomocą kodu napisanego w `app.js` - o ile lokalne *API* zostało uruchomione.
@@ -14,3 +18,7 @@ Przypominam, że trzeba:
 * przekazanć odpowiedni nagłówek (`'Content-Type': 'application/json'`)
 
 Po dodaniu kolejnego użytkownika należy zaktualizować widok przy pomocy funkcji `loadUsers()`, którą należy uruchomić w odpowiednim momencie np. `finally()`.
+
+&nbsp;
+
+> :warning: Jeśli nie posiadasz materiałów do tego zadania to znajdziesz je na stronie [devmentor.pl](https://devmentor.pl/p/js-api-and-fetch/)
