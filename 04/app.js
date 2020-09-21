@@ -11,7 +11,7 @@ function getWeather() {
     const form = document.querySelector('.form');
 
     // add listener on click on form
-    form.addEventListener('submit', async event => {
+    form.addEventListener('submit', event => {
         event.preventDefault();
 
         // get the data from form

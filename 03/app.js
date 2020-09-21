@@ -15,30 +15,32 @@ function init() {
 
 function updateIP() {
     const btn = _getHTMLElement('BUTTON');
-    const apiIP = fetch('https://api.wheretheiss.at/v1/satellites/25544');
+    const apiIP = fetch('https://api.ipify.org?format=json');
 
     btn.addEventListener('click', () => handleRequest(apiIP));
 };
 
 
-async function handleRequest(url) {
+function handleRequest(url) {
     // location.reload();
     // return false;
     url
         .then(resp => {
             if (resp.ok) {
-                console.log(resp);
+                return resp.json();
             }
-            return Promise.reject(resp)
+            return Promise.repect(resp)
         })
-        .then(ip => _updateSpan(ip))
+        .then(ip => _updateSpan(ip.ip))
         .catch(err => console.error(err));
 };
 
 
 function _updateSpan(ip) {
+    console.log(ip)
+
     const span = _getHTMLElement('SPAN');
-    span.innerText = ip;
+    span.innerText = `Your IP is ${ip}`;
 };
 function _getHTMLElement(tagName) {
     return document.querySelector(tagName);
