@@ -5,16 +5,15 @@ function init() {
     const form = document.querySelector('form');
     const weatherLat= document.querySelector('.weather__lat');
     const weatherLng= document.querySelector('.weather__lng');
-   // console.log(formEl)
-   //const input = lastDiv.querySelector('input')
+   
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         // zatrzymujemy domyślną akcję formularza
         console.log('cl')
-        const latValue = form.elements[0].value
-        const lngValue = form.elements[1].value
+        const latValue = parseFloat(form.elements[0].value)
+        const lngValue = parseFloat(form.elements[1].value)
         //console.log(latValue, lngValue )
-        if((latValue.match('^[0-9]{1,3}\.[0-9]{0,9}$'))){
+        if(latValue >= 0 && latValue <= 180 && lngValue >= 0 && lngValue <= 180){
         weatherLat.innerText = latValue;
         weatherLng.innerText = lngValue;
 
