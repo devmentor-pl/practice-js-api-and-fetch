@@ -4,7 +4,47 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadUsers();
+    addNewUsers();
+   
 }
+
+function addNewUsers() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', add)
+}
+
+function add (e) {
+
+e.preventDefault();
+const  firstName = document.querySelector('.form__field--first-name');
+const lastName = document.querySelector('.form__field--last-name');
+
+const firstNameValue = firstName.value;
+console.log(firstNameValue)
+const lastNameValue = lastName.value;
+console.log(lastNameValue)
+
+const data = ({
+    firstName: firstNameValue,
+    lastName: lastNameValue
+})
+
+const options = {
+    method: 'POST',
+    body: JSON.stringify( data ),
+    headers: {'Content-Type': 'application/json'}
+    };
+    fetch(apiUrl, options)
+    .then(resp => console.log(resp))
+    .catch(err => console.error(err))
+    .finally( loadUsers );
+
+
+}
+
+
+
+
 
 function loadUsers() {
     const promise = fetchGet(apiUrl);
@@ -35,3 +75,4 @@ function insertUsers(usersList) {
         ulElement.appendChild(liElement);
     });
 }
+
