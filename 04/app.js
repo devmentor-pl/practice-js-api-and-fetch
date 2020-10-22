@@ -19,18 +19,22 @@ function onSubmitForm(e) {
     const lat = latInputElem.value;
     const lng = lngInputElem.value;
 
-    if (lat.length === 0 || isNaN(lat)) {
+    if (!isInputValid(lat)) {
       alert("Proszę podać prawidłową szerokość geograficzną");
       return;
     }
 
-    if (lng.length === 0 || isNaN(lng)) {
+    if (!isInputValid(lng)) {
       alert("Proszę podać prawidłową długość geograficzną");
       return;
     }
 
     fetchWeather(lat, lng);
   }
+}
+
+function isInputValid(value) {
+  return value.length > 0 && !isNaN(value);
 }
 
 function fetchWeather(latitude, longitude) {
