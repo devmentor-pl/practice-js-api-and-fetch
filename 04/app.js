@@ -54,11 +54,10 @@ function getInputValues(e) {
 }
 
 function isInputValueANum(...value) {
-    const booleanArr = [];
-    [...value].forEach(val => {
-        booleanArr.push(!isNaN(val))
+    const arr = [...value].map(val => {
+        return !isNaN(val)
     })
-    if (!booleanArr.includes(false)) {
+    if (!arr.includes(false)) {
         return true
     }
 }
