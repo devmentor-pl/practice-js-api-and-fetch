@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadUsers();
+    const form = document.querySelector('.form');
+    if (form) {
+        form.addEventListener('submit', sendToAPIandList)
+    }
 }
 
 function loadUsers() {
@@ -34,4 +38,34 @@ function insertUsers(usersList) {
 
         ulElement.appendChild(liElement);
     });
+}
+
+function sendToAPIandList(e) {
+    e.preventDefault();
+    const [name, surname] = e.target.elements
+    if (hasOnlyLettersAndHyphen(name.value) && hasOnlyLettersAndHyphen(surname.value)) {
+        const data = {
+            firstName: name.value,
+            lastName: surname.value
+        }
+        postData(data)
+    } else {
+
+        return alert('Only letters of polish alphapet and a hyphen allowed.')
+    }
+}
+
+function hasOnlyLettersAndHyphen(element) {
+    return /^[A-ZÓŚŹŻŁ][a-ząęóćśźżńł]+[\-]?([A-ZÓŚŹŻŁ][a-zząęóćśźżńł]+)?$/.test(element)
+}
+
+function postData(userData) {
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(userData),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    fetch(apiUrl, options)
+        .catch(err => console.err(err))
+        .finally(loadUsers())
 }
