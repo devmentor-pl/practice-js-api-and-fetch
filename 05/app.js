@@ -50,8 +50,7 @@ function sendToAPIandList(e) {
         }
         postData(data)
     } else {
-
-        return alert('Only letters of polish alphapet and a hyphen allowed.')
+        alert('Only letters of polish alphapet and a hyphen allowed.')
     }
 }
 
@@ -66,6 +65,6 @@ function postData(userData) {
         headers: { 'Content-Type': 'application/json' }
     }
     fetch(apiUrl, options)
-        .catch(err => console.err(err))
+        .catch(err => console.error(err))
         .finally(loadUsers())
 }
