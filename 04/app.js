@@ -14,7 +14,7 @@ class FormElements {
         this.form = document.querySelector(formSelector);
     }
 
-    getformElementValue(elementSelector) {
+    getFormElementValue(elementSelector) {
         const formEl = this.form.querySelector(elementSelector);
         if (formEl) {
             return formEl.value
@@ -30,8 +30,8 @@ function init() {
 function getInputValues(e) {
     e.preventDefault();
     const form = new FormElements();
-    const lat = form.getformElementValue('.form__field--lat');
-    const lng = form.getformElementValue('.form__field--lng');
+    const lat = form.getFormElementValue('.form__field--lat');
+    const lng = form.getFormElementValue('.form__field--lng');
     const paragraph = new pElPlaceHolders();
 
     if (!isInputValueANum(lat, lng)) {
