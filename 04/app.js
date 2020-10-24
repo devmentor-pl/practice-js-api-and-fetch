@@ -34,7 +34,7 @@ function getInputValues(e) {
     const lng = form.getFormElementValue('.form__field--lng');
     const paragraph = new DOMHelper();
 
-    if (!isInputValueANum(lat, lng)) {
+    if (!areCorrectNums(lat, lng)) {
         return alert('Proszę wprowadzić tylko liczby')
     }
 
@@ -53,7 +53,7 @@ function getInputValues(e) {
     }
 }
 
-function isInputValueANum(...value) {
+function areCorrectNums(...value) {
     const arr = [...value].map(val => {
         return !isNaN(val)
     })
