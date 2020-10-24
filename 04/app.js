@@ -54,12 +54,7 @@ function getInputValues(e) {
 }
 
 function areCorrectNums(...value) {
-    const arr = [...value].map(val => {
-        return !isNaN(val)
-    })
-    if (!arr.includes(false)) {
-        return true
-    }
+    return [...value].every(val => !isNaN(val))
 }
 
 function replaceGeogrPlaceholders(paragraph, lat, lng) {
