@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', init);
 
-class pElPlaceHolders {
-    constructor(paragraphSelector = 'p') {
-        this.paragraph = document.querySelector(paragraphSelector);
+class DOMHelper {
+    constructor(selector = 'p') {
+        this.root = document.querySelector(selector);
     }
 
-    changePlaceHolderText(elementSelector, newText) {
-        this.paragraph.querySelector(elementSelector).innerText = newText
+    changeElementText(elementSelector, newText) {
+        this.root.querySelector(elementSelector).innerText = newText
     }
 }
 class FormElements {
@@ -32,7 +32,7 @@ function getInputValues(e) {
     const form = new FormElements();
     const lat = form.getFormElementValue('.form__field--lat');
     const lng = form.getFormElementValue('.form__field--lng');
-    const paragraph = new pElPlaceHolders();
+    const paragraph = new DOMHelper();
 
     if (!isInputValueANum(lat, lng)) {
         return alert('Proszę wprowadzić tylko liczby')
@@ -63,12 +63,12 @@ function isInputValueANum(...value) {
 }
 
 function replaceGeogrPlaceholders(paragraph, lat, lng) {
-    paragraph.changePlaceHolderText('.weather__lat', lat);
-    paragraph.changePlaceHolderText('.weather__lng', lng);
+    paragraph.changeElementText('.weather__lat', lat);
+    paragraph.changeElementText('.weather__lng', lng);
 }
 function replaceWeatherPlaceholders(paragraph, descr, temp) {
-    paragraph.changePlaceHolderText('.weather__summary', descr);
-    paragraph.changePlaceHolderText('.weather__temperature', temp);
+    paragraph.changeElementText('.weather__summary', descr);
+    paragraph.changeElementText('.weather__temperature', temp);
 }
 
 function fetchURLWithParameters(lat, lng) {
