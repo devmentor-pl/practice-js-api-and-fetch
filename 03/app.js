@@ -4,14 +4,19 @@ function init() {
     console.log('DOM');
     const spanEl = document.querySelector('span');
     const btnEl = document.querySelector('button');
+    const url = 'https://api.ipify.org?format=json';
 
-    const promise = fetch('https://api.ipify.org?format=json');
+    loadAPI(url, btnEl, spanEl)
+}
+
+function loadAPI(url, submittingEl, ipContainer) {
+    const promise = fetch(url);
     promise
         .then(res => {
             if (res.ok) { return res.json(); }
             return Promise.reject(res);
         })
-        .then(ip => uploadIPOnClick(btnEl, spanEl, ip.ip))
+        .then(ip => uploadIPOnClick(submittingEl, ipContainer, ip.ip))
         .catch(err => console.error(err))
 }
 
