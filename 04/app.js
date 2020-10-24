@@ -18,7 +18,7 @@ class FormElements {
         const formEl = this.form.querySelector(elementSelector);
         if (formEl) {
             return formEl.value
-        }
+        } else { return null }
     }
 }
 
