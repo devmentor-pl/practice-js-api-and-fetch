@@ -2,31 +2,26 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     const divList = document.querySelectorAll('div');
-    
-    setBorderColorAsync(divList[0], 'red', function() {
-        setBorderColorAsync(divList[1], 'blue', function() {
-            setBorderColorAsync(divList[2], 'green', function() {
-                console.log('finish');
-            });
-        });
-    });
 
+    setBorderColorAsync(divList[0], 'red')
+        .then(res1 => setBorderColorAsync(divList[1], 'green'))
+        .then(res2 => setBorderColorAsync(divList[2], 'blue'))
+        .finally(() => {
+            console.log('Finish')
+        })
 }
 
-function setBorderColorAsync(element, color, callback) {
-    if(element && element instanceof HTMLElement) {
-        // sprawdzam czy parametr jest elementem DOM, więcej:
-        // https://stackoverflow.com/questions/384286/javascript-isdom-how-do-you-check-if-a-javascript-object-is-a-dom-object
-        
-        if(callback && typeof callback === 'function') {
+const setBorderColorAsync = (element, color, response) => {
+    const promise = new Promise((resolve, reject) => {
+        if (element && element instanceof HTMLElement) {
+            // sprawdzam czy parametr jest elementem DOM, więcej:
+            // https:stackoverflow.com/questions/384286/javascript-isdom-how-do-you-check-if-a-javascript-object-is-a-dom-object
             setTimeout(() => {
-                element.style.border = `3px solid ${color}`;
-                callback();
+                resolve(element.style.border = `3px solid ${color}`);
             }, Math.random() * 3000);
         } else {
-            alert('Parametr ~callback~ mus być funkcją');
+            reject('Paremetr ~element~ musi być prawidłowym elementem DOM');
         }
-    } else {
-        alert('Paremetr ~element~ musi być prawidłowym elementem DOM');
-    }
+    })
+    return promise;
 }
