@@ -1,28 +1,23 @@
 document.addEventListener('DOMContentLoaded', init);
-const inputs = document.querySelectorAll('.form__field');
-const spanLat = document.querySelector('.weather__lat');
-const spanLong = document.querySelector('.weather__lng');
-const spanSummary = document.querySelector('.weather__summary');
-const spanTemp = document.querySelector('.weather__temperature');
-const form = document.querySelector('.form');
+
 
 
 function init() {
     console.log('DOM');
 
+    const form = document.querySelector('.form');
+
     form.addEventListener('submit', (e) => {
         let coords = prepareData(e);
-        const lat = coords[0];
-        const long = coords[1];
+        const [lat, long] = coords;
         downloadData(lat, long);
     });
-
-
 
 }
 
 const prepareData = (e) => {
     e.preventDefault();
+    const inputs = document.querySelectorAll('.form__field');
     let [latInput, longInput] = inputs;
 
     const lat = parseFloat(latInput.value);
@@ -59,6 +54,10 @@ const downloadData = (lat, long) => {
 }
 
 const printData = (data) => {
+    const spanLat = document.querySelector('.weather__lat');
+    const spanLong = document.querySelector('.weather__lng');
+    const spanSummary = document.querySelector('.weather__summary');
+    const spanTemp = document.querySelector('.weather__temperature');
     console.log(data);
     spanLat.textContent = data.lat;
     spanLong.textContent = data.lon;
