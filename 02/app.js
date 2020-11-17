@@ -17,7 +17,8 @@ const setBorderColorAsync = (element, color, response) => {
             // sprawdzam czy parametr jest elementem DOM, więcej:
             // https:stackoverflow.com/questions/384286/javascript-isdom-how-do-you-check-if-a-javascript-object-is-a-dom-object
             setTimeout(() => {
-                resolve(element.style.border = `3px solid ${color}`);
+                element.style.border = `3px solid ${color}`
+                resolve();
             }, Math.random() * 3000);
         } else {
             reject('Paremetr ~element~ musi być prawidłowym elementem DOM');
