@@ -11,15 +11,15 @@ function init() {
         });
     }); */
     
-    //setBorderColorAsync(divList[0], 'red', function() {
-    //    console.log("f")
-    //})
-    //setBorderColorAsync(divList[1], 'blue', function() {
-    //    console.log("f")
-    //})
-    //setBorderColorAsync(divList[2], 'green', function() {
-    //    console.log("f")
-    //})
+    setBorderColorAsync(divList[0], 'red', function() {
+        console.log("f")
+    })
+    setBorderColorAsync(divList[1], 'blue', function() {
+        console.log("f")
+    })
+    setBorderColorAsync(divList[2], 'green', function() {
+        console.log("f")
+    })
     
 }
 
