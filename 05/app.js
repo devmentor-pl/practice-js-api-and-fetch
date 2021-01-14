@@ -10,7 +10,7 @@ function init() {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         let obj = {
-            id: undefined, // nie wiem jak stworzyc rozwiazanie, ktore za kazdym razem gdy submit sie wykona utworzy id wieksze od ostatniego
+            id: undefined, 
             firstName: undefined,
             lastName: undefined,
         }
