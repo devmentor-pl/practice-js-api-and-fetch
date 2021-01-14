@@ -1,16 +1,4 @@
 {
-  "excursions": [
-    {
-      "id": 1,
-      "name": "Zwiedzanie Krakowa",
-      "price": 120
-    },
-    {
-      "id": 2,
-      "name": "Zwiedzanie Warszawy",
-      "price": 120
-    }
-  ],
   "users": [
     {
       "id": 1,
@@ -41,6 +29,11 @@
       "firstName": "asdsad",
       "lastName": "asdsad",
       "id": 6
+    },
+    {
+      "firstName": "asd",
+      "lastName": "asd",
+      "id": 7
     }
   ]
 }
