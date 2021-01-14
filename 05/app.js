@@ -3,6 +3,37 @@ const apiUrl = 'http://localhost:3000/users';
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+    const form = document.querySelector(".form");
+    const firstInput = document.querySelector(".form__field--first-name");
+    const secInput = document.querySelector(".form__field--last-name");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let obj = {
+            id: undefined, // nie wiem jak stworzyc rozwiazanie, ktore za kazdym razem gdy submit sie wykona utworzy id wieksze od ostatniego
+            firstName: undefined,
+            lastName: undefined,
+        }
+        obj.firstName = firstInput.value;
+        obj.lastName = secInput.value;
+        console.log(obj)
+        const options = {
+            method:'POST', 
+            body:JSON.stringify( obj ), 
+            headers: { "Content-Type":"application/json" },
+            }
+            const promise = fetch('http://localhost:3000/users', 
+            options,
+            );
+            promise    
+                .then(resp=> {
+                    if(resp.ok) { return resp.json(); }
+                    return Promise.reject(resp);    
+                })    
+                .then(data => console.log(data))
+                .catch(err=>console.error(err));    
+    })
+    
     loadUsers();
 }
 

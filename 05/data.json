@@ -1,14 +1,46 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstName": "Jan",
-            "lastName": "Kowalski"
-        },
-        {
-            "id": 2,
-            "firstName": "Kamil",
-            "lastName": "Nowak"
-        }
-    ]
+  "excursions": [
+    {
+      "id": 1,
+      "name": "Zwiedzanie Krakowa",
+      "price": 120
+    },
+    {
+      "id": 2,
+      "name": "Zwiedzanie Warszawy",
+      "price": 120
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Jan",
+      "lastName": "Kowalski"
+    },
+    {
+      "id": 2,
+      "firstName": "Kamil",
+      "lastName": "Nowak"
+    },
+    {
+      "firstName": "asd",
+      "lastName": "asd",
+      "id": 3
+    },
+    {
+      "firstName": "asdas",
+      "lastName": "asdsda",
+      "id": 4
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "id": 5
+    },
+    {
+      "firstName": "asdsad",
+      "lastName": "asdsad",
+      "id": 6
+    }
+  ]
 }
