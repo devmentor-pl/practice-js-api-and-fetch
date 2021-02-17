@@ -6,12 +6,12 @@ function init() {
 
 
     const formEl = document.querySelector('form');
-    formEl.addEventListener('submit', dataDewnload);
+    formEl.addEventListener('submit', dataDownload);
 
 }
 
 
-const dataDewnload = e => {
+const dataDownload = e => {
     e.preventDefault();
 
     const valuesList = [];

@@ -42,21 +42,15 @@ function setBorderColorAsync(element, color, callback) {
 }
 */
 
+
 // NOWE
-function setBorderColorAsync(element, color, callback) {
+function setBorderColorAsync(element, color) {
 
     const promise = new Promise((resolve, reject) => {
         if (element && element instanceof HTMLElement) {
-            //if (callback && typeof callback === 'function') {
-            resolve(
-                setTimeout(() => {
-                    element.style.border = `3px solid ${color}`;
-                    //callback();
-                }, Math.random() * 3000),
-            );
-            //} else {
-            //    reject('Parametr ~callback~ musi być funkcją');
-            //}
+            setTimeout(() => {
+                resolve(element.style.border = `3px solid ${color}`);
+            }, Math.random() * 3000);
         } else {
             reject('Paremetr ~element~ musi być prawidłowym elementem DOM');
         }
