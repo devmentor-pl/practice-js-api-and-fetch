@@ -49,7 +49,8 @@ function setBorderColorAsync(element, color) {
     const promise = new Promise((resolve, reject) => {
         if (element && element instanceof HTMLElement) {
             setTimeout(() => {
-                resolve(element.style.border = `3px solid ${color}`);
+                element.style.border = `3px solid ${color}`;
+                resolve('done');
             }, Math.random() * 3000);
         } else {
             reject('Paremetr ~element~ musi być prawidłowym elementem DOM');
