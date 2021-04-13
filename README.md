@@ -3,7 +3,7 @@
 
 &nbsp;
 
-# JavaScript: API & FETCH
+# JavaScript: API oraz FETCH
 
 Umiejęność korzystania z *API* jest często wykorzystywaną umiejęnością w pracy Front-end Developer-a.
 
