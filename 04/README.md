@@ -2,7 +2,7 @@
 
 &nbsp;
 
-# `#04` JavaScript: API & FETCH
+# `#04` JavaScript: API oraz FETCH
 
 W tym zadaniu musisz pobrać aktualną pogodę dla podanych w polu formularza współrzędnych. 
 
