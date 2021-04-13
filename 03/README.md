@@ -2,7 +2,7 @@
 
 &nbsp;
 
-# `#03` JavaScript: API & FETCH
+# `#03` JavaScript: API oraz FETCH
 
 
 Tym razem Twoim zadaniem jest napisanie kodu, który pozwoli po kliknięciu w `<button/>` pobrać number *IP* z jakim łączysz się z Internetem i wstawić go do elementu `<span/>`.
