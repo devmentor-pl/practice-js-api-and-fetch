@@ -2,7 +2,7 @@
 
 &nbsp;
 
-# `#05` JavaScript: API & FETCH
+# `#05` JavaScript: API oraz FETCH
 
 
 W tym zadaniu będziesz potrzebować narzędzia [JSON Server](https://github.com/typicode/json-server), który uruchomi lokalne API na podstawie pliku `data.json`.
