@@ -2,7 +2,7 @@
 
 &nbsp;
 
-# `#01` JavaScript: API & FETCH
+# `#01` JavaScript: API oraz FETCH
 
 W pliku `app.js` masz przygotowany kod, który ustawia kolor obramowania dla wyszukanych `div`ów.
 
