@@ -1,3 +1,5 @@
+import {key} from './key.js'
+
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
@@ -19,7 +21,7 @@ function submit(e) {
 
 async function getWeatherInfo(lat, lng) {
     try {
-        const res = await fetch(`https://api.weatherbit.io/v2.0/current?key=2b14a373ec16481eabbd0bf964d923ac&lat=${lat}&lon=${lng}&lang=pl&units=I`);
+        const res = await fetch(`https://api.weatherbit.io/v2.0/current?key=${key}&lat=${lat}&lon=${lng}&lang=pl&units=I`);
     const resInJson = await res.json();
     displayWeatherInfo(resInJson.data[0]);
     } catch (error) {
