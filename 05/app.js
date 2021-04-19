@@ -34,23 +34,22 @@ function insertUsers(usersList) {
 
         ulElement.appendChild(liElement);
     });
-    submit(usersList.length);
+    submit();
 }
 
-function submit(idNumber) {
+function submit() {
     const btn = document.querySelector('.form__submit');
     btn.addEventListener('click', e => {
         e.preventDefault();
         const firstName = document.querySelector('.form__field--first-name').value;
         const lastName = document.querySelector('.form__field--last-name').value;
-        addUser(firstName, lastName, ++idNumber);
+        addUser(firstName, lastName);
     });
 }
 
 function addUser(firstName, lastName, id) {
 
     const newUser = {
-        "id": id,
         "firstName": firstName,
         "lastName": lastName,
     }
