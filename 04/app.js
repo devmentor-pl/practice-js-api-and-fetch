@@ -6,6 +6,20 @@ let latitude = document.querySelector('.form__field--lat');
 let longitude = document.querySelector('.form__field--lng');
 let celsius;
 let fahrenheit;
+let inputs = document.querySelectorAll('.form__field');
+
+inputs.forEach(e => {
+	e.value = '';
+	e.setAttribute('autocomplete','off');
+	e.setAttribute('onkeydown','return numberOnly(event)');
+	e.setAttribute('maxlength','10');
+	console.log(e);
+});
+
+const numberOnly = (event => {
+	let key = event.keyCode;
+	return ((key >= 48 && key <= 57) || key == 190 || key == 37 || key == 39 || key == 8); // only 0-9, dot, left and right arrows characters
+});
 
 const getFahrenheit = () => {
     fahrenheit = ((celsius * 18)/10) + 32;
