@@ -36,13 +36,13 @@ function init() {
         .then(() => setBorderColorAsync(divList[2], 'green'))
         .catch((error) => console.log(error))
         .finally(() => console.log('finish'));
-     
+
 }
 
 function setBorderColorAsync(element, color) {
 
 
-    const promise = new Promise ((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
         if (element && element instanceof HTMLElement) {
             // sprawdzam czy parametr jest elementem DOM, więcej:
             // https://stackoverflow.com/questions/384286/javascript-isdom-how-do-you-check-if-a-javascript-object-is-a-dom-object
@@ -50,7 +50,7 @@ function setBorderColorAsync(element, color) {
 
             setTimeout(() => {
                 element.style.border = `3px solid ${color}`;
-                resolve(console.log('done'));
+                resolve('done');
 
             }, Math.random() * 3000);
         } else {

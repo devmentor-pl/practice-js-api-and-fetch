@@ -12,7 +12,7 @@ function init() {
 }
 
 const getNumber = () => {
-    const promise = fetch('https://www.ipify.org');
+    const promise = fetch('https://api.ipify.org?format=json');
 
     promise
         .then(resp => {
@@ -22,7 +22,7 @@ const getNumber = () => {
 
         .then(ip => {
             console.log(ip);
-            const span = document.querySelector('.span');
+            const span = document.querySelector('span');
             span.innerText = ip.ip;
         })
 

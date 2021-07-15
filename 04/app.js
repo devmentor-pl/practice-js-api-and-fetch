@@ -45,8 +45,8 @@ function getData(e) {
         const weatherTemperature = document.querySelector('.weather__temperature');
 
 
-        weatherLat.innerText = lat;
-        weatherLng.innerText = lng;
+        weatherLat.textContent = lat;
+        weatherLng.textContent = lng;
 
 
         const key = '46ab6ee6f1824ef3bce1cae4ac3583f5';
@@ -58,10 +58,15 @@ function getData(e) {
         promise
             .then((response) => response.json())
             .then(data => {
-                weatherSummary.innerText = data.data[0].weather.description
-                weatherTemperature.innerText = data.data[0].temp
+                const { temp, weather: { description } } = data.data[0];
+                console.log({ temp, description });
+                return { temp, description };
+            })
+            .then(result => {
+                weatherSummary.textContent = result.description
+                weatherTemperature.textContent = result.temp
             });
+
     }
 
 }
-
