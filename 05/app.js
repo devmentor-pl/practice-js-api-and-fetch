@@ -16,14 +16,52 @@ Po dodaniu kolejnego użytkownika należy zaktualizować widok przy pomocy funkc
 
 
 
-const apiUrl = 'http://localhost:3000/users';
+const apiUrl = ' http://localhost:3000/users';
 
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+    console.log('DOM');
     loadUsers();
+    addUsers();
 }
 
+
+// funkcja pozwalająca na dodawanie danych do naszego API 
+function addUsers() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', add)
+}
+
+function add(e) {
+    e.preventDefault();
+
+    const firstName = document.querySelector('.form__field--first-name');
+    const lastName = document.querySelector('.form__field--last-name');
+
+    const firstnameValue = firstName.value;
+    console.log(firstnameValue);
+    const lastnameValue = lastName.value;
+    console.log(lastnameValue);
+
+    const data = ({
+        firstName: firstnameValue, lastName: lastnameValue
+    })
+
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    };
+
+    fetch(apiUrl, options)
+        .then(resp => console.log(resp))
+        .catch(err => console.error(err))
+        .finally(loadUsers);
+
+}
+
+// funckja pobierająca dane z API
 function loadUsers() {
     const promise = fetchGet(apiUrl);
 
@@ -35,7 +73,7 @@ function loadUsers() {
 function fetchGet(url) {
     return fetch(url)
         .then(resp => {
-            if(resp.ok) {
+            if (resp.ok) {
                 return resp.json();
             }
 
@@ -43,13 +81,16 @@ function fetchGet(url) {
         });
 }
 
+// funkcja otrzymująca przez parametr dane z API 
 function insertUsers(usersList) {
     const ulElement = document.querySelector('.users');
     ulElement.innerHTML = '';
     usersList.forEach(user => {
         const liElement = document.createElement('li');
+
         liElement.innerText = `${user.firstName} ${user.lastName}`;
 
         ulElement.appendChild(liElement);
     });
 }
+
