@@ -11,10 +11,12 @@ function init() {
 const getCoordinates = () => {
     const latitude = document.querySelector('.form__field--lat').value;
     const longtitude = document.querySelector('.form__field--lng').value;
-    return {
-        latitude,
-        longtitude
-    };
+    if (latitude && longtitude) {
+        return {
+            latitude,
+            longtitude
+        };
+    }
 }
 
 const apiResponse = (e) => {
