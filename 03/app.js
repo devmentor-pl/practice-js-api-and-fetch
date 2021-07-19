@@ -12,7 +12,7 @@ function getObjectsFromDocument() {
 }
 
 function getIpNumber() {
-    const api = fetch('https://www.ipify.org');
+    const api = fetch('https://api.ipify.org?format=json');
     api
         .then(req => {
             if(req.ok) {
