@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', init);
 function init() {
     console.log('DOM');
     const button = document.querySelector('button');
-    button.addEventListener('click', getIP)
+    button.addEventListener('click', getIP);
 }
 
 function getIP() {
@@ -15,7 +15,7 @@ function getIP() {
             }
             return Promise.reject(resp);
         })
-        .then(ip => showIP(ip))
+        .then(ip => console.log(ip))
         .catch(err => console.log(err))
         .finally(() => console.log('Odpytywanie API zakończone!'))
 }
