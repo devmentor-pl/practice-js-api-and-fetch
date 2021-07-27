@@ -15,7 +15,7 @@ function getIP() {
             }
             return Promise.reject(resp);
         })
-        .then(ip => console.log(ip))
+        .then(ip => showIP(ip))
         .catch(err => console.log(err))
         .finally(() => console.log('Odpytywanie API zakończone!'))
 }
