@@ -24,7 +24,11 @@ function displayCoords(lat, lng) {
 async function displayWeather(lat, lng) {
     try {
         const weather = await getWeather(lat, lng);
-        console.log(weather);
+        const [conditions, temp] = weather;
+        const displayWeather = document.querySelector(".weather__summary");
+        displayWeather.innerText = conditions.toLowerCase();
+        const displayTemp = document.querySelector(".weather__temperature");
+        displayTemp.innerText = temp;
     } catch (error) {
         console.log("error");
     }
@@ -32,9 +36,10 @@ async function displayWeather(lat, lng) {
 
 function getWeather(lat, lng) {
     const key = "a0d63ece07e944e18ce685e9a119e6bd";
+    const lang = "pl";
 
     const API = fetch(
-        `https://api.weatherbit.io/v2.0/current?key=${key}&lat=${lat}&lon=${lng}`
+        `https://api.weatherbit.io/v2.0/current?key=${key}&lat=${lat}&lon=${lng}&lang=${lang}`
     );
 
     return API.then((resp) => {
@@ -46,7 +51,10 @@ function getWeather(lat, lng) {
     })
         .then((weather) => {
             console.log(weather);
-            return weather;
+            const conditions = weather.data[0].weather.description;
+            const temp = weather.data[0].app_temp;
+            const data = [conditions, temp];
+            return data;
         })
         .catch((err) => console.error(err));
 }
