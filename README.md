@@ -1,19 +1,20 @@
 
+
 > :dart: *Chcę mieć absolutną pewność, że **darmowe materiały**, które publikuję, spełniają Twoje oczekiwania. Dlatego oferuję Ci ebooka o wartości 39 PLN: `Jak zostać programistą? SKUTECZNY PRZEWODNIK` w zamian za [wypełnienie ankiety](https://devmentor.pl/ankieta).*
 
 &nbsp;
 
 # JavaScript: API oraz FETCH
 
-Umiejęność korzystania z *API* jest często wykorzystywaną umiejęnością w pracy Front-end Developer-a.
+Umiejętność korzystania z API jest często wykorzystywana w pracy front end developera.
 
-`fetch()` to rozwiązaniem, które pozwala nam wykonywać zapytania do *API* i pobierać dane, które potem możemy zaprezentować na naszej stronie.
+Metoda `fetch()` pozwala wykonywać zapytania do API i pobierać dane, które potem możemy zaprezentować na naszej stronie.
 
-Wspomniana funkcja jest rozwiązaniem asynchronicznym dlatego wywołania zwrotne (ang. *callback*) powinny być Ci znane, jak również problemy z nimi związane np. [callback hell](http://callbackhell.com/).
+Jest ona rozwiązaniem asynchronicznym, dlatego przed przystąpieniem do zadań powinieneś poznać działanie wywołania zwrotnego (ang. *callback*) i problemów z nim związanych, np. [callback hell](http://callbackhell.com/).
 
 `fetch()` wykorzystuje w swojej implementacji obietnice (ang. *Promise*), które również nie powinny być Ci obce.
 
-Opisywane wyżej zagadnia są niezbędne do wykonania zadań jakie są dostępne w tym repozytorium.
+Opisywane wyżej zagadania są niezbędne do wykonania zadań z tego repozytorium.
 
 
 &nbsp;
