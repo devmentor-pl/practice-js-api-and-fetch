@@ -4,11 +4,11 @@
 
 # `#01` JavaScript: API oraz FETCH
 
-W pliku `app.js` masz przygotowany kod, który ustawia kolor obramowania dla wyszukanych `div`ów.
+W pliku `app.js` masz przygotowany kod, który ustawia kolor obramowania dla wyszukanych `divów`.
 
 Niestety kod ten posiada zagnieżdżenia, co zmniejsza jego czytelność i może doprowadzić do efektu *[callback hell](http://callbackhell.com/)*.
 
-Twoim zadaniem jest przebudowanie kodu w taki sposób, aby zagnieżdzenia nie występowały. Utwórz odpowiednie funkcje, które rozwiążą problem.
+Twoim zadaniem jest przebudowanie kodu w taki sposób, aby zagnieżdzenia nie występowały. Utwórz odpowiednie funkcje, które rozwiążą ten problem.
 
 
 &nbsp;
