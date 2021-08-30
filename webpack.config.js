@@ -1,4 +1,4 @@
-const taskNumber = '01';
+const taskNumber = '02';
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
