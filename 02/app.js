@@ -14,9 +14,12 @@ const setBorderColorAsync = (element, color) => {
     return new Promise((resolve, reject) => {
         const time = setTime();
         setTimeout(() => {
-            isHTMLEl(element) ?
-                resolve(changeBorderColor(element, color)) :
+            if (isHTMLEl(element)) {
+                changeBorderColor(element, color);
+                resolve('done');
+            } else {
                 reject('Parametr ~element~ musi być prawidłowym elementem DOM');
+            }
         }, time);
     });
 }
