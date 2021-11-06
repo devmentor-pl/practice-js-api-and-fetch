@@ -11,9 +11,14 @@
       "lastName": "Nowak"
     },
     {
-      "name": "test",
-      "lastName": "test",
+      "firstName": "Andrzej",
+      "lastName": "Niemiec",
       "id": 3
+    },
+    {
+      "firstName": "Piotr",
+      "lastName": "Skowyrski",
+      "id": 4
     }
   ]
 }

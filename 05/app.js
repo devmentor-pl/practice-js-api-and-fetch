@@ -70,10 +70,10 @@ function sendDatas(userData) {
 
 function getUserDates() {
 
-    const name = document.querySelector('.form__field--first-name').value;
+    const firstName = document.querySelector('.form__field--first-name').value;
     const lastName = document.querySelector('.form__field--last-name').value;
 
-    // console.log(typeof name);
+    // console.log(typeof firstName);
     // console.log(typeof lastName);
-    return {name, lastName};
+    return {firstName, lastName};
 }
