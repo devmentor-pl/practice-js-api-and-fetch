@@ -4,42 +4,47 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
 	loadUsers();
+	addUser();
 }
 
-const form = document.querySelector('.form');
-form.addEventListener('submit', addUser);
+function addUser() {
+	const form = document.querySelector('.form');
+	form.addEventListener('submit', addData);
+}
 
-const firstNameInput = document.querySelector('.form__field--first-name');
-const lastNameInput = document.querySelector('.form__field--last-name');
-
-function addUser(e) {
+function addData(e) {
 	e.preventDefault();
+	const data = getData();
+	return isDataValid(data) ? fetchPOST(data) : alert('Wrong input!');
+}
 
-	const data = {
-		firstName: firstNameInput.value,
-		lastName: lastNameInput.value,
-	};
+function getData() {
+	const firstName = document
+		.querySelector('.form__field--first-name')
+		.value.trim();
+	const lastName = document
+		.querySelector('.form__field--last-name')
+		.value.trim();
+	return { firstName, lastName };
+}
 
+function isDataValid({ firstName, lastName }) {
+	const regEx = /^[a-z ,.'-]+$/i;
+	return regEx.test(firstName) && regEx.test(lastName);
+}
+
+function loadUsers(options) {
+	const promise = fetchGet(apiUrl, options);
+	promise.then((data) => insertUsers(data)).catch((err) => console.error(err));
+}
+
+function fetchPOST(data) {
 	const options = {
 		method: 'POST',
 		body: JSON.stringify(data),
 		headers: { 'Content-Type': 'application/json' },
 	};
-
-	if (firstNameInput.value && lastNameInput.value) {
-		const promise = fetchGet(apiUrl, options);
-		promise
-			.then((data) => insertUsers(data))
-			.catch((err) => console.error(err));
-	} else {
-		alert('Wrong input!');
-	}
-}
-
-function loadUsers() {
-	const promise = fetchGet(apiUrl);
-
-	promise.then((data) => insertUsers(data)).catch((err) => console.error(err));
+	loadUsers(options);
 }
 
 function fetchGet(url, options) {
