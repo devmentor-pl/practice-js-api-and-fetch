@@ -5,7 +5,7 @@
 # `#05` JavaScript: API oraz FETCH
 
 
-W tym zadaniu będziesz potrzebować narzędzia [JSON Server](https://github.com/typicode/json-server), które uruchomi lokalne API na podstawie pliku `data.json`.
+W tym zadaniu będziesz potrzebować narzędzia [JSON Server](https://github.com/typicode/json-server), które uruchomi lokalne API na podstawie pliku `data.json`. JSON Server instalowaliśmy globalnie podczas przerabiania materiałów z tego modułu.
 
 W pliku tym znajdują się już dane, które zostaną załadowane do HTML-a za pomocą kodu napisanego w `app.js` zaraz po uruchomieniu lokalnego API.
 
