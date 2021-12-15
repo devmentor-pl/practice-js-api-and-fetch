@@ -41,8 +41,7 @@ function setLatLng() {
 }
 
 function getWeatherDesc() {
-  fetch(`${apiUrl}&lat=${weatherLat.innerText}&lon=${weatherLng.innerText}`);
-  promise
+  fetch(`${apiUrl}&lat=${weatherLat.innerText}&lon=${weatherLng.innerText}`)
     .then((resp) => {
       if (resp.ok) {
         return resp.json();
@@ -56,10 +55,7 @@ function getWeatherDesc() {
 }
 
 function getWeatherTemp() {
-  const promise = fetch(
-    `${apiUrl}&lat=${weatherLat.innerText}&lon=${weatherLng.innerText}`
-  );
-  promise
+  fetch(`${apiUrl}&lat=${weatherLat.innerText}&lon=${weatherLng.innerText}`)
     .then((resp) => {
       if (resp.ok) {
         return resp.json();
