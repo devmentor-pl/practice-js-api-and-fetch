@@ -1,38 +1,33 @@
-// document.addEventListener('DOMContentLoaded', init);
-
-// function init() {
-//     const divList = document.querySelectorAll('div');
-
-//     setBorderColorAsync(divList[0], 'red', function() {
-//         setBorderColorAsync(divList[1], 'blue', function() {
-//             setBorderColorAsync(divList[2], 'green', function() {
-//                 console.log('finish');
-//             });
-//         });
-//     });
-
-// }
-
-// function setBorderColorAsync(element, color, callback) {
-//     setTimeout(() => {
-//         element.style.border = `3px solid ${color}`;
-//         callback();
-//     }, Math.random() * 3000);
-// }
 
 const divList = document.querySelectorAll('div');
 
-const setBorderColorAsync = (element,color) => {
+const sayStart = () => {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            console.log(`start`);
+            resolve()
+        },0)
+    })
+}
+
+const setBorderColorAsync = (element,color,time) => {
     return new Promise ((resolve, reject) => {
         setTimeout(() => {
             element.style.border = `3px solid ${color}`;
             resolve();
-        },Math.random() * 3000)
+        },time)
     });
 }
 
-setBorderColorAsync(divList[0],'red')
-    .then(setBorderColorAsync(divList[1],'blue'))
-    .then(setBorderColorAsync(divList[2],'green'))
+const time = () => {
+    const time = Math.random() * 3000;
+    return time;
+}
 
+console.log(time());
+
+sayStart()
+    .then(setBorderColorAsync(divList[0],'red',time()))
+    .then(setBorderColorAsync(divList[1],'blue',time()))
+    .then(setBorderColorAsync(divList[2],'green',time()))
 
