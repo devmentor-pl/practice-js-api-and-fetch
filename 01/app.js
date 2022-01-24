@@ -19,18 +19,17 @@ const setBorderColorAsync = (element,color,time) => {
     });
 }
 
-const time = () => { return time = Math.random() * 3000;}
-
+let getTime = () => { return time = Math.random() * 3000;}
 
 sayStart()
     .then(() => {
-        return setBorderColorAsync(divList[0],'red',time())
+        return setBorderColorAsync(divList[0],'red', getTime())
     })
     .then(() => {
-        return setBorderColorAsync(divList[1],'blue',time())
+        return setBorderColorAsync(divList[1],'blue', getTime())
     })
     .then(() => {
-        return setBorderColorAsync(divList[2],'green',time())
+        return setBorderColorAsync(divList[2],'green', getTime())
     })
     .then(() => console.log('end'))
 
