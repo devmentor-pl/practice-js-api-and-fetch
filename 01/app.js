@@ -6,7 +6,7 @@ const sayStart = () => {
         setTimeout(() => {
             console.log(`start`);
             resolve()
-        },0)
+        },1000)
     })
 }
 
@@ -24,10 +24,15 @@ const time = () => {
     return time;
 }
 
-console.log(time());
 
 sayStart()
-    .then(setBorderColorAsync(divList[0],'red',time()))
-    .then(setBorderColorAsync(divList[1],'blue',time()))
-    .then(setBorderColorAsync(divList[2],'green',time()))
+    .then((response) => {
+        return setBorderColorAsync(divList[0],'red',time())
+    })
+    .then((response) => {
+        return setBorderColorAsync(divList[1],'blue',time())
+    })
+    .then((response) => {
+        setBorderColorAsync(divList[2],'green',time())
+    })
 
