@@ -17,7 +17,7 @@ const time = () => {
 const setBorderColorAsync = (element,color,time) => {
     return new Promise ((resolve, reject) => {
         if(element && element instanceof HTMLElement) {
-            if(resolve && typeof resolve === 'function') {
+            if(setBorderColorAsync && typeof setBorderColorAsync === 'function') {
                 setTimeout(() => {
                     element.style.border = `3px solid ${color}`;
                     resolve();
