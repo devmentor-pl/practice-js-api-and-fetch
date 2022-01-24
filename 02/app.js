@@ -9,10 +9,7 @@ const sayStart = () => {
     })
 }
 
-const time = () => {
-    const time = Math.random() * 3000;
-    return time;
-}
+const time = () => { return time = Math.random() * 3000;}
 
 const setBorderColorAsync = (element,color,time) => {
     return new Promise ((resolve, reject) => {
