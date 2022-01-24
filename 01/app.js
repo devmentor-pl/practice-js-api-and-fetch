@@ -33,6 +33,7 @@ sayStart()
         return setBorderColorAsync(divList[1],'blue',time())
     })
     .then((response) => {
-        setBorderColorAsync(divList[2],'green',time())
+        return setBorderColorAsync(divList[2],'green',time())
     })
+    .then(() => console.log('end'))
 
