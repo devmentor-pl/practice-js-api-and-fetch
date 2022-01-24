@@ -26,13 +26,13 @@ const time = () => {
 
 
 sayStart()
-    .then((response) => {
+    .then(() => {
         return setBorderColorAsync(divList[0],'red',time())
     })
-    .then((response) => {
+    .then(() => {
         return setBorderColorAsync(divList[1],'blue',time())
     })
-    .then((response) => {
+    .then(() => {
         return setBorderColorAsync(divList[2],'green',time())
     })
     .then(() => console.log('end'))
