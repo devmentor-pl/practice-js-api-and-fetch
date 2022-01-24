@@ -19,10 +19,7 @@ const setBorderColorAsync = (element,color,time) => {
     });
 }
 
-const time = () => {
-    const time = Math.random() * 3000;
-    return time;
-}
+const time = () => { return time = Math.random() * 3000;}
 
 
 sayStart()
