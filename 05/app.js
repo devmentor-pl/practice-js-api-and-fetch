@@ -1,9 +1,10 @@
-const apiUrl = 'http://localhost:3000/users';
+const apiUrl = 'http://localhost:3000/users'; 
 
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadUsers();
+    addUsers();
 }
 
 function loadUsers() {
@@ -33,5 +34,25 @@ function insertUsers(usersList) {
         liElement.innerText = `${user.firstName} ${user.lastName}`;
 
         ulElement.appendChild(liElement);
+    });
+}
+
+function addUsers(){
+    const formEl = document.querySelector('form');
+    formEl.addEventListener('submit', e => {
+        e.preventDefault();
+        const firstName = e.target.querySelector('.form__field--first-name').value;
+        const lastName = e.target.querySelector('.form__field--last-name').value;
+        const newUserData = {firstName:firstName,lastName:lastName};
+
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(newUserData),
+            headers: {'Content-Type': 'application/json'}
+        };
+        fetch(apiUrl,options)
+            .then(response => console.log(response))
+            .catch(error => console.error(error))
+            .finally(loadUsers());
     });
 }
