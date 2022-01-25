@@ -28,7 +28,7 @@ const addCoordinatesText = ({lat,lng}) => {
 }
 
 const addWeatherInfo = (response) => {
-    //const {data:[{city_name},{weather:{description}}]} = response; // problem z tym zapisem, a wydaje mi sie ze jest ok,chciałam w jednym miejscu pobrac wszystkie dane, to w ogole mozliwe? blad Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'weather')
+    //const {data:[{city_name},{weather:{description}}]} = response; // problem z tym zapisem, a wydaje mi sie ze jest ok (odpowiednie nawiasy i kolejnosc),chciałam w jednym miejscu pobrac wszystkie dane, to w ogole mozliwe? Strasznie mnie nurtuje ten problem , czytanie  bledzie mi nie pomoglo - blad Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'weather')
     const {data:[{city_name}]} = response;
     const {data:[{weather:{description}}]} = response;
     const {data:[{temp}]} = response;
