@@ -41,13 +41,15 @@ function addUsers(){
     const formEl = document.querySelector('form');
     formEl.addEventListener('submit', e => {
         e.preventDefault();
-        const firstName = e.target.querySelector('.form__field--first-name').value;
-        const lastName = e.target.querySelector('.form__field--last-name').value;
-        const newUserData = {firstName:firstName,lastName:lastName};
+        console.log(e.target.elements);
+        const {firstName,lastName} = e.target.elements;
+        const users = {
+            firstName:firstName.value, lastName:lastName.value 
+           };
 
         const options = {
             method: 'POST',
-            body: JSON.stringify(newUserData),
+            body: JSON.stringify(users),
             headers: {'Content-Type': 'application/json'}
         };
         fetch(apiUrl,options)
