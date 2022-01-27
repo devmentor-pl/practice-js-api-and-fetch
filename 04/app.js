@@ -10,31 +10,28 @@ function init() {
     formEl.addEventListener('submit', getDataFromUser) 
 }
 
-// const addCityName = (response) => {
-//     return new Promise((resolve,reject) => {
-//         const {data:[{city_name}]} = response;
-//         const spanCity = document.querySelector('.city__name').innerText = city_name;
-//         resolve(response);
-//     })
-// }
+const addCityName = (response) => {
+    const {data:[{city_name}]} = response;
+    const spanCity = document.querySelector('.city__name').innerText = city_name;
+    return response;
 
-// const addWeatherDescription = ({data:[{weather:{description}}]}) => {
-//     const spanDesc = document.querySelector('.weather__summary');
-//     spanDesc.innerText = description;
+}
 
-// }
+const addWeatherDescription = (response) => {
+    const {data:[{weather:{description}}]} = response;
+    const spanDesc = document.querySelector('.weather__summary').innerText = description;
+    return response;
+
+}
+const addTempInfo = (response) => {
+    const {data:[{temp}]} = response;
+    const fahrenheit = Math.round((temp * 1.8) + 32);
+    const spanTemp = document.querySelector('.weather__temperature').innerText = fahrenheit;
+}
 
 const addCoordinatesText = ({lat,lng}) => {
     const latValue = document.querySelector('.weather__lat').innerText=lat;
     const lngValue = document.querySelector('.weather__lng').innerText=lng;
-}
-
-const addWeatherInfo = (response) => {
-    const {data:[{city_name,weather:{description},temp}]} = response; 
-    const fahrenheit = Math.round((temp * 1.8) + 32);
-    const spanCity = document.querySelector('.city__name').innerText = city_name;
-    const spanDesc = document.querySelector('.weather__summary').innerText = description;
-    const spanTemp = document.querySelector('.weather__temperature').innerText = fahrenheit;
 }
 
 function getDataFromUser(e){
@@ -52,14 +49,19 @@ function takeWeatherData({lat,lng}) {
              if(response.ok) {return response.json();}
              return new Promise.reject(response)
          })
-         .then(response => addWeatherInfo(response))
-        //  .then(response=> addCityName(response))
-        //  .then(response => console.log(response))
-        //  .then(response => addWeatherDescription(response))
+         .then(response => addCityName(response))
+         .then(response => addWeatherDescription(response))
+         .then(response => addTempInfo(response))
          .catch(error => console.error(error))
  }
 
 
-
+// const addWeatherInfo = (response) => {
+//     const {data:[{city_name,weather:{description},temp}]} = response; 
+//     const fahrenheit = Math.round((temp * 1.8) + 32);
+//     const spanCity = document.querySelector('.city__name').innerText = city_name;
+//     const spanDesc = document.querySelector('.weather__summary').innerText = description;
+//     const spanTemp = document.querySelector('.weather__temperature').innerText = fahrenheit;
+// }
 
 
