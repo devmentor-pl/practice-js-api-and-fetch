@@ -6,7 +6,7 @@
 
 W tym zadaniu musisz pobrać aktualną pogodę dla podanych w polu formularza współrzędnych. 
 
-Wykorzystaj do tego API o nazwie [weatherbit.io](https://www.weatherbit.io/), które umożliwia wykonanie [500 odpytań dziennie w darmowym planie](https://www.weatherbit.io/pricing#standard).
+Wykorzystaj do tego API o nazwie [weatherbit.io](), które umożliwia wykonanie [500 odpytań dziennie w darmowym planie](https://www.weatherbit.io/pricing#standard).
 
 Aby móc skorzystać z tego API, musisz [zarejestrować się](https://www.weatherbit.io/account/create) i uzyskać tzw. `key`.
 
