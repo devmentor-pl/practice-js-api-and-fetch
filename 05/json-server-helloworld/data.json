@@ -1,14 +1,29 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstName": "Jan",
-            "lastName": "Kowalski"
-        },
-        {
-            "id": 2,
-            "firstName": "Kamil",
-            "lastName": "Nowak"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Jan",
+      "lastName": "Kowalski"
+    },
+    {
+      "id": 2,
+      "firstName": "Kamil",
+      "lastName": "Nowak"
+    },
+    {
+      "firstName": "Magdalena",
+      "lastName": "Nolde",
+      "id": 3
+    },
+    {
+      "firstName": "Zenon",
+      "lastName": "Martyniuk",
+      "id": 4
+    },
+    {
+      "firstName": "Jarek",
+      "lastName": "Kaczynski",
+      "id": 5
+    }
+  ]
 }
