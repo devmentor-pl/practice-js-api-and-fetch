@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadUsers();
+    addUser();
 }
 
 function loadUsers() {
@@ -34,4 +35,27 @@ function insertUsers(usersList) {
 
         ulElement.appendChild(liElement);
     });
+}
+
+function addUser() {
+    const formEl = document.querySelector('.form');
+    formEl.addEventListener('submit', updateAPI);
+
+    function updateAPI(e) {
+        e.preventDefault();
+        const [firstName, lastName] = e.target.elements;
+        data = {
+            firstName: firstName.value,
+            lastName: lastName.value,
+        };
+    
+        options = {
+            method: 'POST',
+            body: JSON.stringify( data ),
+            headers: {'Content-Type': 'application/json'}
+        };
+        
+        fetch(apiUrl, options)
+            .finally(loadUsers)
+    }
 }
