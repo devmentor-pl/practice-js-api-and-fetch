@@ -19,12 +19,10 @@ function init() {
         
         fetch(`https://api.weatherbit.io/v2.0/current?key=135029b019d045e08b9206c9037fc3d4&lat=${latValue}&lon=${lngValue}`)
             .then(resp => resp.json())
-            .then(data => weatherSummary.innerText = data.data[0].city_name)
-            .catch(err => console.error(err))
-
-        fetch(`https://api.weatherbit.io/v2.0/current?key=135029b019d045e08b9206c9037fc3d4&lat=${latValue}&lon=${lngValue}`)
-            .then(resp => resp.json())
-            .then(data => weatherTemperature.innerText = data.data[0].app_temp)
+            .then(data => {
+                weatherSummary.innerText = data.data[0].city_name;
+                weatherTemperature.innerText = data.data[0].app_temp;
+            })
             .catch(err => console.error(err))
     }
 }
