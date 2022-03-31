@@ -43,19 +43,21 @@ function addUser() {
 
     function updateAPI(e) {
         e.preventDefault();
-        const [firstName, lastName] = e.target.elements;
-        data = {
-            firstName: firstName.value,
-            lastName: lastName.value,
-        };
-    
-        options = {
-            method: 'POST',
-            body: JSON.stringify( data ),
-            headers: {'Content-Type': 'application/json'}
-        };
+            const [firstName, lastName] = e.target.elements;
+
+            data = {
+                firstName: firstName.value,
+                lastName: lastName.value,
+            };
         
-        fetch(apiUrl, options)
-            .finally(loadUsers)
+            options = {
+                method: 'POST',
+                body: JSON.stringify( data ),
+                headers: {'Content-Type': 'application/json'}
+            };
+            
+            fetch(apiUrl, options)
+                .catch(err => console.error(err))
+                .finally(loadUsers)
     }
 }
