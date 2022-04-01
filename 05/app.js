@@ -43,8 +43,9 @@ function addUser() {
 
     function updateAPI(e) {
         e.preventDefault();
-            const [firstName, lastName] = e.target.elements;
-
+        const [firstName, lastName] = e.target.elements;
+        
+        if(firstName.value && lastName.value) {
             data = {
                 firstName: firstName.value,
                 lastName: lastName.value,
@@ -59,5 +60,6 @@ function addUser() {
             fetch(apiUrl, options)
                 .catch(err => console.error(err))
                 .finally(loadUsers)
+        }
     }
 }
