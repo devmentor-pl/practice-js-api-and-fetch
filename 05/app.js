@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadUsers();
+    addUsers();
 }
 
 function loadUsers() {
@@ -34,4 +35,27 @@ function insertUsers(usersList) {
 
         ulElement.appendChild(liElement);
     });
+}
+
+function addUsers() {
+    const form = document.querySelector('.form');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const [firstName, lastName] = e.target.elements;
+        if(firstName.value === '' || lastName.value === '') {
+            alert('Podaj dane!')
+        } else {
+            const data = {firstName: firstName.value, lastName: lastName.value};
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {'Content-Type': 'application/json'}
+            };
+            fetch(apiUrl, options)
+                .then(resp => console.log(resp))
+                .catch(err => console.log(err))
+                .finally(loadUsers());
+        }
+    })
 }
