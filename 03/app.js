@@ -7,7 +7,7 @@ function init() {
     console.log('DOM');
 }
 
-function ShowIp() {
+function showIp() {
     const promise = fetch('https://api.ipify.org?format=json')
     const ipSpan = document.querySelector('span')
 
