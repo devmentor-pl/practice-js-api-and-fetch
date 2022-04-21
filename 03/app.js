@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     const downloadBtn = document.querySelector('button')
-    downloadBtn.addEventListener('click', ShowIp)
+    downloadBtn.addEventListener('click', showIp)
 
     console.log('DOM');
 }
