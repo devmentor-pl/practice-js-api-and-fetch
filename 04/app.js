@@ -30,6 +30,7 @@ function handleSubmit(e) {
 }
 
 function updateData(json) {
+    const city = document.querySelector(".weather__city");
     const lat = document.querySelector(".weather__lat");
     const lng = document.querySelector(".weather__lng");
     const summary = document.querySelector(".weather__summary");
@@ -38,6 +39,7 @@ function updateData(json) {
     const [info] = data;
     console.log(info);
 
+    city.textContent = info.city_name;
     lat.textContent = info.lat;
     lng.textContent = info.lon;
     summary.textContent = info.weather.description;
