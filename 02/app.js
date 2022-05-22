@@ -25,29 +25,43 @@ function init() {
 
     // Promise 2 - solution using only then
     // ------------------
-    setBorderColorAsync(divList[0], 'red')
+    const promise = setBorderColorAsync(divList[0], 'red')
         .then(() => setBorderColorAsync(divList[1], 'green'))
         .then(() => setBorderColorAsync(divList[2], 'blue'))
         .then(() => console.log('finished'))
+        .catch(err => console.log(err))
+
+    console.log(promise)
 
 }
 
-function setBorderColorAsync(element, color) {
-    // if(element && element instanceof HTMLElement) {
-        // sprawdzam czy parametr jest elementem DOM, więcej:
-        // https://stackoverflow.com/questions/384286/javascript-isdom-how-do-you-check-if-a-javascript-object-is-a-dom-object
+function isElement(o){
+    return (
+      typeof HTMLElement === "object" ? o instanceof HTMLElement : //DOM2
+      o && typeof o === "object" && o !== null && o.nodeType === 1 && typeof o.nodeName==="string"
+  )
+}
+
+// sprawdzam czy parametr jest elementem DOM, więcej:
+// https://stackoverflow.com/questions/384286/javascript-isdom-how-do-you-check-if-a-javascript-object-is-a-dom-object
         
+
+function setBorderColorAsync(element, color) {
+    const el = isElement(element)
+
         // if(callback && typeof callback === 'function') {
             return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    element.style.border = `3px solid ${color}`;
-                    resolve()
-                }, Math.random() * 3000);
+                if(el) {
+                    console.log('Element DOM', el)
+                    setTimeout(() => {
+                        element.style.border = `3px solid ${color}`;
+                        resolve()
+                    }, Math.random() * 3000)
+                } else {
+                    reject('Element not DOM')
+                }
             })
         // } else {
         //     alert('Parametr ~callback~ mus być funkcją');
         // }
-    // } else {
-    //     alert('Paremetr ~element~ musi być prawidłowym elementem DOM');
-    // }
 }
