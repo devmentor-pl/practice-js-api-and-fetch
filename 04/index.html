@@ -13,12 +13,12 @@
     <form class="form">
         <div class="form__row">
             <label class="form__label">
-                latitude: <input class="form__field form__field--lat" />
+                latitude: <input class="form__field form__field--lat" placeholder="wysokość geograficzna" />
             </label>
         </div>
         <div class="form__row">
             <label class="form__label">
-                longitude: <input class="form__field form__field--lng" />
+                longitude: <input class="form__field form__field--lng" placeholder="długość geograficzna" />
             </label>
         </div>
         <div class="form__row">
@@ -27,6 +27,7 @@
     </form>
 
     <section class="weather">
+        <p class="weather__error" style="color: red"></p>
         <p>Pogodę w obecnej chwili w
             <strong class="weather__city"></strong>
             o szerokości geograficznej: <strong class="weather__lat">XXX</strong> i

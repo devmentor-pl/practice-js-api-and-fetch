@@ -8,11 +8,25 @@ function init() {
 
 function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.elements)
+    // console.log(e.target.elements)
+    const weatherError = document.querySelector(".weather__error");
+    weatherError.textContent = "";
     const [latEl, longEl] = e.target.elements;
-    const latValue = latEl.value;
-    const longValue = longEl.value
-    console.log(latValue, longValue)
+
+    let latValue = parseFloat(latEl.value);
+    let longValue = parseFloat(longEl.value);
+    // console.log(latValue, longValue)
+    // console.log(typeof latValue);
+    if (!latValue || !longValue) {
+        // console.log("Wpisz wartości liczbowe");
+        weatherError.innerHTML = "Musisz wpisać wartości liczbowe w polach latitude i longitude, np. dla Białegostoku [latitude] = <strong>53.13333</strong> [longitude] = <strong>23.16433</strong>.";
+
+        return
+    }
+    latEl.value = "";
+    longEl.value = "";
+
+
     const url = `https://api.weatherbit.io/v2.0/current?key=91afce6c8c6b4b368fbde18e20a314e7&lat=${latValue}&lon=${longValue}&lang=pl&units=I`;
 
     console.log(url);
