@@ -6,21 +6,26 @@ function init() {
     const button = document.querySelector('button')
     button.addEventListener('click', getAddress)
 
+    const span = document.querySelector('span')
+
     function getAddress() {
         console.log('click')
-        fetch('https://www.ipify.org')
+        fetch('https://api.ipify.org?format=json')
             .then(response => {
                 console.log(response)
-                if(reponse.ok) {
-                    return reponse.json()
+                if(response.ok) {
+                    return response.json()
                 } 
             })
-            .then(val => console.log(val))
+            .then(val => {
+                console.log(val)
+                span.innerHTML = val.ip
+            })
             .catch(err => console.log('Problem: ',err))
     }
 
-    const span = document.querySelector('span')
-    span.innerHTML = '0.0.0.1'
+    
+    
 
 
 }
