@@ -12,7 +12,7 @@ function showWeatherInfo(e, outputFields) {
 
     e.preventDefault();
 
-    const [lat, lon] = getCoordinate(e.target.elements);
+    const [lat, lon] = getCoordinate(e.target.elements);  
     
     if (isValidLatitude(lat) && isValidLongitude(lon)) {
 
