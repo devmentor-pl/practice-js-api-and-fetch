@@ -7,7 +7,6 @@ function init() {
     btn.addEventListener('click', () => updateIP(ipField));
 }
 
-
 function updateIP(ipField) {
 
     const promise = fetch('https://api.ipify.org?format=json');

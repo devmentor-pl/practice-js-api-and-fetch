@@ -12,9 +12,7 @@ function showWeatherInfo(e, outputFields) {
 
     e.preventDefault();
 
-    const [latInput, lonInput] = e.target.elements;   
-    const lat = latInput.value;
-    const lon = lonInput.value;
+    const [lat, lon] = getCoordinate(e.target.elements);
     
     if (isValidLatitude(lat) && isValidLongitude(lon)) {
 
@@ -29,6 +27,11 @@ function showWeatherInfo(e, outputFields) {
         e.target.reset();
         alert('Wprowadź poprawne współrzędne geograficzne');
     }
+}
+
+function getCoordinate([latInput, lonInput]) {
+
+    return [latInput.value, lonInput.value]
 }
 
 function createUrl(lat, lon) {
