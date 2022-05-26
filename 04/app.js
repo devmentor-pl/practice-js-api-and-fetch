@@ -14,7 +14,7 @@ function showWeatherInfo(e, outputFields) {
 
     const [lat, lon] = getCoordinate(e.target.elements);  
     
-    if (isValidLatitude(lat) && isValidLongitude(lon)) {
+    if (isValidCoordinate(lat, 90) && isValidCoordinate(lon, 180)) {
 
         const apiUrl = createUrl(lat, lon);
         
@@ -62,20 +62,11 @@ function displayData(data, outputFields) {
     outputFields.forEach((item, index) => item.innerText = arrData[index]);
 }
 
-function isValidLatitude(lat) {
+function isValidCoordinate(coordinate, range) {
     
-    if ((isNaN(lat)) || (lat < -90 ) || (lat > 90)) {
+    if ((isNaN(coordinate)) || (coordinate < range*-1 ) || (coordinate > range)) {
         return false;
     }
     
     return true;    
-}
-
-function isValidLongitude(lon) {
-    
-    if ((isNaN(lon)) || (lon < -180 ) || (lon > 180)) {
-        return false;
-    }
-
-    return true;        
 }
