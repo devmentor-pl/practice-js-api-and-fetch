@@ -11,14 +11,14 @@
       "lastName": "Nowak"
     },
     {
-      "firstName": "K",
-      "lastName": "K",
-      "id": 3
-    },
-    {
       "firstName": "Krzysztof",
       "lastName": "Kubek",
       "id": 4
+    },
+    {
+      "firstName": "Maja",
+      "lastName": "Sobczak",
+      "id": 5
     }
   ]
 }

@@ -41,14 +41,12 @@ function addUsers() {
     const formEl = document.querySelector('form');
     formEl.addEventListener('submit', e => {
         e.preventDefault();
-        //let firstNameEl = document.querySelector('.form__field--first-name');
-        //let lastNameEl = document.querySelector('.form__field--last-name');
-        console.log(e.target.elements[0].value);
-
-        //const {firstName, lastName} = e.target.elements;
+        const firstNameEl = document.querySelector('.form__field--first-name');
+        const lastNameEl = document.querySelector('.form__field--last-name');
+        const {firstName, lastName} = e.target.elements;
         const data = {
-            firstName: e.target.elements[0].value, lastName: e.target.elements[1].value
-        };
+            firstName: firstNameEl.value, lastName: lastNameEl.value
+        }
         const options = {
             method: 'POST',
             body: JSON.stringify ( data ),
