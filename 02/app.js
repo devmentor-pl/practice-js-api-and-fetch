@@ -8,16 +8,6 @@ function init() {
         .then(resp => setBorderColorAsync(divList[2], 'green', function(){}))
         .then(resp => console.log('finish'))
         .catch(err => console.error(err));
-
-    
-    //setBorderColorAsync(divList[0], 'red', function() {
-        //setBorderColorAsync(divList[1], 'blue', function() {
-            //setBorderColorAsync(divList[2], 'green', function() {
-                //console.log('finish');
-            //});
-        //});
-    //});
-
 }
 
 function setBorderColorAsync(element, color, callback) {
