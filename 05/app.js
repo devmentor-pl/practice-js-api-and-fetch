@@ -4,7 +4,47 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadUsers();
+    addUser();
 }
+
+function addUser() {
+    const formEl = document.querySelector('.form');
+
+    if(formEl) {
+        formEl.addEventListener('submit', handleSubmit);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        console.log(e.target.elements)
+        const firstNameEl = e.target.elements[0];
+        const firstName = firstNameEl.value;
+        const lastNameEl = e.target.elements[1];
+        const lastName = lastNameEl.value;
+
+        if(firstName && lastName) {
+            fetchPost(apiUrl, {firstName, lastName})
+                .then(resp => {
+                    if(resp.ok) {
+                        return resp.json();
+                    }
+                })
+                .then(data => console.log(data))
+                .catch(err => console.error(err))
+                .finally( loadUsers );
+        }
+    }
+}
+
+function fetchPost(url, data) {
+    const options = {
+        method: 'POST',
+        body: JSON.stringify( data ),
+        headers: {'Content-Type': 'application/json'}
+    }
+    return fetch(url, options)
+}    
 
 function loadUsers() {
     const promise = fetchGet(apiUrl);
