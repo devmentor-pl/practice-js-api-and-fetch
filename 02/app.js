@@ -12,6 +12,7 @@ function init() {
     // });
 
     setBorderColorAsync(divList[0], 'red', setBorderColorAsync)
+
         .then(resp1 => setBorderColorAsync(divList[1], 'blue', setBorderColorAsync))
         .then(resp2 => setBorderColorAsync(divList[2], 'green', function(){console.log('finish')}))
         .catch(err => console.error(err));
@@ -51,12 +52,14 @@ function setBorderColorAsync(element, color, callback) {
 
                 resolve(setTimeout(() => {
                     element.style.border = `3px solid ${color}`;
-                    callback();
+                    callback(element, color, callback);
                 }, Math.random() * 3000)) 
             }else{
                 reject('Parametr ~callback~ musi być funkcją')
             }
-        }else{reject('Parametr ~element~ musi być prawidłowym elementem DOM')}
+        }else{
+            reject('Parametr ~element~ musi być prawidłowym elementem DOM')
+        }
     })
-    return promise;
+    return promise
 }
