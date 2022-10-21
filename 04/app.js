@@ -26,8 +26,9 @@ function submitHandler(e){
     const lngPattern = /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/
     if(latPattern.test(latInput.value) && lngPattern.test(lngInput.value)){
         loadWeather(latInput.value, lngInput.value);
+        e.target.reset();
     }else{
-        alert('Podaj prawidłowe współrzędne')
+        alert('Podaj prawidłowe współrzędne w systemie dziesiętnym')
     }
 }
 
