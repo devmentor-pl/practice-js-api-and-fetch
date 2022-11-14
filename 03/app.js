@@ -4,15 +4,28 @@ function init() {
     console.log('DOM');
 }
 
-function getApi () {
-    const promise = fetch('https://api.ipify.org');
+const clickBtn = () => {
+    const button = document.querySelector('button');
+    button.addEventListener('click', getApi)
+}
+
+const getApi = () => {
+    const promise = fetch('https://api.ipify.org?format=json');
+
     promise
-        .then(resp => resp.text())
-        .then(ip => console.log(ip))
-        .catch(err => console.error(err))
-        .finally(() => {
-            console.log('Odpytywanie API zakończone!')
-});
+        .then (resp => {
+            if(resp.ok) { return resp.json() }
+            return Promise.reject(resp);
+        })
+        .then( ip => showIP(ip) )
+        .catch( err => console.error(err) )
+        .finally( () => console.log ('Odpytywanie API zakończone!'))
+}
+
+const showIP = ip => {
+    const spanEl = document.querySelector('span');
+    const ipEl = ip.ip
+    spanEl.innerText = ipEl;
 }
    
-getApi();
+document.addEventListener('DOMContentLoaded', clickBtn);
