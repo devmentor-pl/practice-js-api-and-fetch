@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', init);
+
 
 function init() {
     console.log('DOM');
@@ -61,7 +61,7 @@ const getContent = () => {
         longitudeValue:longitudeValue
     } = geographicCord();
 
-    const path ='https://api.weatherbit.io/v2.0/current?key=[key]&lat=[latitude]&lon=[longitude]';
+    const path ='https://api.weatherbit.io/v2.0/current?key=${keyEl}&lat=[latitude]&lon=[longitude]';
     
     return path;
 }
