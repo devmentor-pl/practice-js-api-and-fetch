@@ -13,7 +13,7 @@ const getIP = () => {
     })
     .then(ip => showIP(ip))
     .catch(err => console.log(err))
-    .finally( () => console.log('IP address downloaded successfully'))
+    .finally( () => console.log('done'))
 }
 
 function showIP(ip) {
