@@ -1,7 +1,3 @@
-const key = '3f8b882da33d4731a149cd2cb80b54e4';
-const lang = 'pl';
-const path = `https://api.weatherbit.io/v2.0/current?key=${key}&lat=${lat}&lon=${long}&lang=${lang}`;
-
 const init = () => {
     console.log('DOM');
 
@@ -11,12 +7,15 @@ const init = () => {
 
 const getWeatherData = (e) => {
     e.preventDefault();
-    const latitude = document.querySelector('.form__field--lat').value;
-    const longitude = document.querySelector('.form__field--lng').value;
-    getLocation(latitude, longitude);
+    const lat = document.querySelector('.form__field--lat').value;
+    const long= document.querySelector('.form__field--lng').value;
+    getLocation(lat, long);
 }
 
-const getLocation = (latitude, longitude) => {
+const getLocation = (lat, long) => {
+    const key = '3f8b882da33d4731a149cd2cb80b54e4';
+    const lang = 'pl';
+    const path = `https://api.weatherbit.io/v2.0/current?key=${key}&lat=${lat}&lon=${long}&lang=${lang}`;
     const promise = fetch(path);
     promise
         .then(resp => {
