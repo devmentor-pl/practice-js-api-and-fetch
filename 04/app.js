@@ -16,17 +16,12 @@ const handlerSubmit = (e) => {
 };
 
 const getWeather = (lat, lon) => {
-	/* const API_LINK = 'https://api.weatherbit.io/v2.0/current?';
+	const API_LINK = 'https://api.weatherbit.io/v2.0/current?';
 	const API_KEY = '&key=f93c6d18427e4c79aca3fb72a6ad546f';
-	const API_UNITS = '&units=I'; */
-
-	const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?';
-	const API_KEY = '&appid=9b5ce65ad2e72e682b7798fee968342e';
-	const API_UNITS = '&units=imperial';
+	const API_UNITS = '&units=I';
 	const API_LANG = '&lang=pl';
 
 	const URL = `${API_LINK}lat=${lat.value}&lon=${lon.value}${API_KEY}${API_UNITS}${API_LANG}`;
-	// const URL = `${API_LINK}lat=52.232222&lon=21.008333${API_KEY}${API_UNITS}`;
 
 	const promise = fetch(URL);
 	promise
@@ -34,21 +29,16 @@ const getWeather = (lat, lon) => {
 			if (resp.ok) {
 				return resp.json();
 			} else if (resp.status === 400) {
-				alert('Nieprawidłowe żądanie!');
+				return Promise.reject('Nieprawidłowe żądanie!');
 			}
 			return Promise.reject(resp);
 		})
 		.then((data) => {
-			setData(data);
-
-			// const copyData = Object.assign({}, ...data.data);
-			// const temp = copyData.temp;
-
-			// latText.textContent = copyData.lat;
-			// lonText.textContent = copyData.lon;
-			// weatherSummary.textContent = copyData.weather.description;
+			const copyData = Object.assign({}, ...data.data);
+			console.log(copyData);
+			setData(copyData);
 		})
-		.catch(alert('Podaj prawidłowe współrzędne'));
+		.catch(() => alert('Podaj poprawne współrzędne.'));
 };
 
 const setData = (data) => {
@@ -57,14 +47,10 @@ const setData = (data) => {
 	const weatherSummary = document.querySelector('.weather__summary');
 	const temperature = document.querySelector('.weather__temperature');
 
-	temperature.textContent = data.main.temp;
-	latText.textContent = data.coord.lat;
-	lonText.textContent = data.coord.lon;
-	weatherSummary.textContent = data.weather[0].description;
+	temperature.textContent = data.temp;
+	latText.textContent = data.lat;
+	lonText.textContent = data.lon;
+	weatherSummary.textContent = data.weather.description;
 };
 
 document.addEventListener('DOMContentLoaded', init);
-
-// Warszawa: 52.232222, 21.008333,
-// Kraków: 50.061389, 19.938333,
-// Wrocław: 51.11, 17.022222.
