@@ -35,7 +35,6 @@ const getWeather = (lat, lon) => {
 		})
 		.then((data) => {
 			const copyData = Object.assign({}, ...data.data);
-			console.log(copyData);
 			setData(copyData);
 		})
 		.catch(() => alert('Podaj poprawne współrzędne.'));
