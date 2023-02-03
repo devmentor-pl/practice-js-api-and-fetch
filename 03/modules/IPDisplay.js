@@ -1,49 +1,55 @@
 class IPDisplay {
-    constructor(api, sectionElements) {
+    constructor(api, sectionElement) {
         this.api = api;
-        this.sectionElements = sectionElements;
+        this.sectionElement = sectionElement;
     }
 
-    load() {
-        this.showStatus();
-
-        this.api.loadData()
-            .then(data => {
-                this.showStatus(data);
-
-                return data;
-            })
-            .then(data => {
-                this.insert(data);
-            })
-            .catch(err => this.insert(err.message))
-    }
-
-    showStatus(data) {
-        const [, span] = this.sectionElements;
-
-        if (data) {
-            this.renderTextInfo(span, '0.0.0.0');
-        }
-        else {
-            this.renderTextInfo(span, 'wait...');
-        }
-    }
-
-    insert(ip) {
-        const [button, span] = this.sectionElements;
-
-        button.addEventListener('click', e => {
+    init() {
+        this.sectionElement.addEventListener('click', e => {
             const targetEl = e.target;
 
             if (targetEl.tagName === 'BUTTON') {
-                this.renderTextInfo(span, ip);
+                this.load();
             }
         })
     }
 
-    renderTextInfo(element, content) {
+    load() {
+        this._showStatus();
+
+        this.api.loadData()
+            .then(data => {
+                this._showStatus(data);
+
+                return data;
+            })
+            .then(data => {
+                this._insert(data);
+            })
+            .catch(err => this._insert(err.message))
+    }
+
+    _insert(ip) {
+        this._renderTextInfo(this._findSpanElement(), ip);
+    }
+
+    _showStatus(data) {
+        if (data) {
+            this._renderTextInfo(this._findSpanElement(), '0.0.0.0');
+        }
+        else {
+            this._renderTextInfo(this._findSpanElement(), 'wait...');
+        }
+    }
+
+    _renderTextInfo(element, content) {
         element.innerText = content;
+    }
+
+    _findSpanElement() {
+        const [, span] = this.sectionElement.children;
+
+        return span;
     }
 
 }
