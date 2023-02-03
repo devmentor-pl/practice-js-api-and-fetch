@@ -3,15 +3,9 @@ class API {
         // to check real time data set "this.API.enabled" to "true"
         this.API = {
             url: 'https://api.weatherbit.io/v2.0/current?key=ffc13da65b494013b12370e7bdecb3f0',
-            enabled: false,
+            enabled: true,
         };
-        this.dataForAPI = {
-            lat: '',
-            lng: '',
-            units: 'I',
-            lang: 'pl',
-        };
-        this.apiProto = {
+        this.apiStub = {
             "data": {
                 "wind_cdir": "NE",
                 "rh": 59,
@@ -56,6 +50,12 @@ class API {
                 "slp": 1022.2
             }
         };
+        this.dataForAPI = {
+            lat: '',
+            lng: '',
+            units: 'I',
+            lang: 'pl',
+        };
     }
 
     getGeoCoords(geoCoordsFromInputs) {
@@ -80,10 +80,14 @@ class API {
                     }
                     return Promise.reject(resp);
                 })
-                .then(weatherData => weatherData.data[0])
+                .then(resp => {
+                    const [weatherData] = resp.data;
+
+                    return weatherData;
+                })
         } else {
             return new Promise((resolve, reject) => {
-                resolve(this.apiProto.data);
+                resolve(this.apiStub.data);
             });
         }
     }

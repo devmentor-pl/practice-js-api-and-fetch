@@ -5,15 +5,15 @@ class WeatherGUI {
         this.weatherInfoElement = document.querySelector('.weather');
     }
 
-    load() {
-        this.getFormData();
+    init() {
+        this.initEvents();
     }
 
-    getFormData() {
-        this.formEl.addEventListener('submit', e => this.handleSubmit(e));
+    initEvents() {
+        this.formEl.addEventListener('submit', e => this.handleFormSubmit(e));
     }
 
-    handleSubmit(e) {
+    handleFormSubmit(e) {
         e.preventDefault();
         const errors = [];
 
@@ -99,6 +99,8 @@ class WeatherGUI {
 
     renderErrors(errors) {
         if (!this.isElementEmpty(errors)) {
+
+
             this.renderFormErrors(errors);
             this.renderSectionError();
         }
@@ -116,15 +118,18 @@ class WeatherGUI {
 
     renderSectionError() {
         const errorEl = this.createElement('p', 'weather__error');
+        const [weatherInfoParagraph,] = this.weatherInfoElement.children;
 
-        this.weatherInfoElement.children[0].style.display = 'none';
+        weatherInfoParagraph.style.display = 'none';
 
         errorEl.innerText = 'Wprowadź poprawne dane i spróbuj ponownie.';
         this.weatherInfoElement.appendChild(errorEl);
     }
 
     clearErrorsList() {
-        this.weatherInfoElement.children[0].style.display = 'block';
+        const [weatherInfoParagraph,] = this.weatherInfoElement.children;
+
+        weatherInfoParagraph.style.display = 'block';
 
         this.removeElement(this.weatherInfoElement, '.weather__error')
         this.removeElement(this.formEl, '.form__errors-list');

@@ -8,5 +8,6 @@ function init() {
 
     const api = new API();
     const weatherGUI = new WeatherGUI(api);
-    weatherGUI.load();
+
+    weatherGUI.init();
 }
