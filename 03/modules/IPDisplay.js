@@ -1,7 +1,7 @@
 class IPDisplay {
-    constructor(api) {
+    constructor(api, sectionElements) {
         this.api = api;
-        this.sectionElements = document.querySelector('section').children;
+        this.sectionElements = sectionElements;
     }
 
     load() {
