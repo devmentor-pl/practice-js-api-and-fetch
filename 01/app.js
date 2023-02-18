@@ -10,14 +10,6 @@ function init() {
     function runGreen() { setBorderColorAsync(divList[2], 'green', runFinish); }
     function runFinish() { console.log("all done") }
 
-    // setBorderColorAsync(divList[0], 'red', function () {
-    //     setBorderColorAsync(divList[1], 'blue', function () {
-    //         setBorderColorAsync(divList[2], 'green', function () {
-    //             console.log('finish');
-    //         });
-    //     });
-    // });
-
 }
 
 function setBorderColorAsync(element, color, callback) {
