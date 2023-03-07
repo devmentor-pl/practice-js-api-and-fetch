@@ -3,14 +3,16 @@ document.addEventListener("DOMContentLoaded", init);
 function init() {
 	const divList = document.querySelectorAll("div");
 
-	setBorderColorAsync(divList[0], "red", changeToBlue);
+	const [one, two, three] = divList;
+
+	setBorderColorAsync(one, "red", changeToBlue);
 
 	function changeToBlue() {
-		setBorderColorAsync(divList[1], "blue", changeToGreen);
+		setBorderColorAsync(two, "blue", changeToGreen);
 	}
 
 	function changeToGreen() {
-		setBorderColorAsync(divList[2], "green", showConsoleLog);
+		setBorderColorAsync(three, "green", showConsoleLog);
 	}
 
 	function showConsoleLog() {
