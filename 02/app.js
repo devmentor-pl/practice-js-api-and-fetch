@@ -10,24 +10,16 @@ function init() {
 		.then(() => {
 			console.log("finish");
 		})
-		.catch(error => console.error(error))
-		.finally(() => {
-			console.log("done");
-		});
+		.catch(error => console.error(error));
 }
 
 function setBorderColorAsync(element, color) {
 	const promise = new Promise((resolve, reject) => {
 		if (element && element instanceof HTMLElement) {
-			// if (callback && typeof callback === "function") {
-
 			setTimeout(() => {
 				element.style.border = `3px solid ${color}`;
-				resolve("done");
+				resolve();
 			}, Math.random() * 3000);
-			// } else {
-			// 	reject(alert("Parametr ~callback~ musi być funkcją"));
-			// }
 		} else {
 			reject(alert("Parametr ~element~ musi być prawidłowym elementem DOM"));
 		}
