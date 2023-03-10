@@ -40,10 +40,14 @@ function addUser() {
 
 		const [firstName, lastName] = e.target.elements;
 
-		const data = {
-			firstName: firstName.value,
-			lastName: lastName.value,
-		};
+		if (firstName.value !== "" && lastName.value !== "") {
+			const data = {
+				firstName: firstName.value,
+				lastName: lastName.value,
+			};
+
+			return data;
+		}
 
 		const options = {
 			method: "POST",
