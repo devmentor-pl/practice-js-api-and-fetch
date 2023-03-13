@@ -46,18 +46,16 @@ function addUser() {
 				lastName: lastName.value,
 			};
 
-			return data;
+			const options = {
+				method: "POST",
+				body: JSON.stringify(data),
+				headers: { "Content-Type": "application/json" },
+			};
+
+			fetch(apiUrl, options)
+				.then(resp => console.log(resp))
+				.catch(err => console.error(err))
+				.finally(loadUsers);
 		}
-
-		const options = {
-			method: "POST",
-			body: JSON.stringify(data),
-			headers: { "Content-Type": "application/json" },
-		};
-
-		fetch(apiUrl, options)
-			.then(resp => console.log(resp))
-			.catch(err => console.error(err))
-			.finally(loadUsers);
 	});
 }
