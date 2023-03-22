@@ -40,8 +40,7 @@ function insertUsers(usersList) {
 function handleSubmit(e) {
 	e.preventDefault()
 
-	const firstName = e.target.elements[0]
-	const lastName = e.target.elements[1]
+	const [firstName, lastName] = e.target.elements
 
 	if (firstName.value.length > 3 && lastName.value.length > 3) {
 		const data = {
