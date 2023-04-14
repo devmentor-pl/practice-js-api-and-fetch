@@ -46,7 +46,7 @@ function addUserstoAPI() {
     const options = {
       method: "POST",
       body: JSON.stringify(data),
-      header: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
     };
     fetch(apiUrl, options)
       .then((resp) => console.log(resp))
