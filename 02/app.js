@@ -11,8 +11,8 @@ function init() {
 }
 
 function setBorderColorAsync(element, color, callback) {
-  if (element && element instanceof HTMLElement) {
-    const promise = new Promise((resolve, reject) => {
+  const promise = new Promise((resolve, reject) => {
+    if (element && element instanceof HTMLElement) {
       const time = Math.random() * 3000;
       setTimeout(() => {
         if (callback && typeof callback === "function") {
@@ -22,9 +22,9 @@ function setBorderColorAsync(element, color, callback) {
           reject(alert("Parametr ~callback~ mus być funkcją"));
         }
       }, time);
-    });
-    return promise;
-  }
+    }
+  });
+  return promise;
 }
 
 /*function setBorderColorAsync(element, color, callback) {

@@ -50,11 +50,12 @@ function getWeatherInfo(api) {
 }
 
 function getWeatherDescription(api) {
-  const weather = api["data"][0]["weather"].description;
+  const { weather } = api["data"][0];
+  console.log(api["data"][0]);
   spanElSummary.textContent = weather;
 }
 
 function getTemperature(api) {
-  const temp = api["data"][0]["temp"];
-  spanElTemp.textContent = temp;
+  const { description } = api["data"][0]["weather"];
+  spanElTemp.textContent = description;
 }
