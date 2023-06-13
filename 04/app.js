@@ -9,9 +9,6 @@ function init() {
     const weatherLng = document.querySelector('.weather__lng');
     const weatherSummary = document.querySelector('.weather__summary');
     const weatherTemperature = document.querySelector('.weather__temperature');
-    console.log(weatherLat, weatherLng, weatherSummary, weatherTemperature)
-
-    // console.log(latitude, longitude, submitButton)
 
     formEl.addEventListener('submit', showWeather);
 
@@ -34,10 +31,10 @@ function init() {
                     return resp.json()
                 }
             }).then(data => {
+
                 weatherSummary.innerText = data.data[0].weather.description
                 weatherTemperature.innerText = data.data[0].temp;
-            })
-            .catch(err => {console.log('coś poszło nie tak => ',err) })
+            }).catch(err => {console.log('coś poszło nie tak => ',err) })
     }
     
 }
