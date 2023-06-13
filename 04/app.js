@@ -30,22 +30,39 @@ function init() {
 		}
 	}
 
-	function getWeatherData(data) {
+	// function getWeatherData(data) {
+	// 	const API_KEY = 'b8e59f222fce4663ae7bdc7a6a382b01';
+	// 	const apiUrl = `https://api.weatherbit.io/v2.0/current?key=${API_KEY}&lat=${data.latitude}&lon=${data.longitude}&lang=pl&units=I`;
+
+	// 	fetch(apiUrl)
+	// 		.then((resp) => {
+	// 			if (resp.ok) {
+	// 				return resp.json();
+	// 			}
+	// 			return Promise.reject(resp);
+	// 		})
+	// 		.then((dataFromApi) => {
+	// 			showWeatherData(dataFromApi);
+	// 		})
+	// 		.catch((err) => console.log(err))
+	// 		.finally(() => console.log('Odpytywanie API zakończone'));
+	// }
+	async function getWeatherData(data) {
 		const API_KEY = 'b8e59f222fce4663ae7bdc7a6a382b01';
 		const apiUrl = `https://api.weatherbit.io/v2.0/current?key=${API_KEY}&lat=${data.latitude}&lon=${data.longitude}&lang=pl&units=I`;
 
-		fetch(apiUrl)
-			.then((resp) => {
-				if (resp.ok) {
-					return resp.json();
-				}
-				return Promise.reject(resp);
-			})
-			.then((dataFromApi) => {
-				showWeatherData(dataFromApi);
-			})
-			.catch((err) => console.log(err))
-			.finally(() => console.log('Odpytywanie API zakończone'));
+		try {
+			const resp = await fetch(apiUrl);
+			if (!resp.ok) {
+				throw new Error(resp.status);
+			}
+
+			const dataFromApi = await resp.json();
+			showWeatherData(dataFromApi);
+			console.log('Odpytywanie API zakończone');
+		} catch (err) {
+			console.log(err);
+		}
 	}
 
 	function showWeatherData(dataFromApi) {
