@@ -10,7 +10,6 @@ function init() {
   function secondCallback() {
     setBorderColorAsync(divList[2], "green", thirdCallback);
   }
-
   function thirdCallback() {
     console.log("finish");
   }
