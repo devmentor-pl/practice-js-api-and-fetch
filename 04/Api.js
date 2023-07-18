@@ -2,10 +2,9 @@ class Api {
   constructor() {
     this.API_KEY = "d8b76c86be6b427bb9e7d662826f1f03";
     this.URL = "https://api.weatherbit.io/v2.0/current";
-    this.DEFAULT_CORDS = [52.232222, 21.008333];
   }
 
-  loadData(coordsArr = this.DEFAULT_CORDS) {
+  loadData(coordsArr) {
     const coordsUrl = this.#createCordsString(coordsArr);
     return this.#fetch(coordsUrl);
   }
