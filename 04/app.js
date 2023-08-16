@@ -26,8 +26,17 @@ function getGeoCoordinates(e) {
 function fetchData(latitude, longitude) {
 	const API = `https://api.weatherbit.io/v2.0/current?key=${API__KEY}&lat=${latitude}&lon=${longitude}&units=I`;
 	const weatherData = fetch(API);
-	
-	weatherData.then(resp => resp.json()).then(data => processingData(data, latitude, longitude));
+
+	weatherData
+		.then(resp => {
+			if (resp.ok) {
+				return resp.json();
+			}
+			return Promise.reject(resp);
+		})
+
+		.then(data => processingData(data, latitude, longitude))
+		.catch(err => console.log(err));
 }
 
 function processingData(data, latitude, longitude) {
