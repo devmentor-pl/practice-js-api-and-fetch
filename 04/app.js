@@ -1,14 +1,14 @@
-const API__KEY = '6265f4d03b4b474f88d58705e51823bc';
+import WeatherAPI from './WeatherAPI.js';
+
 const inputSubmit = document.querySelector('.form__submit');
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
 	console.log('DOMloaded');
 
-	inputSubmit.addEventListener('click', getGeoCoordinates);
+	inputSubmit.addEventListener('click', getCoordinates);
 }
-
-function getGeoCoordinates(e) {
+function getCoordinates(e) {
 	e.preventDefault();
 	const latitudeInput = document.querySelector('.form__field--lat');
 	const longitudeInput = document.querySelector('.form__field--lng');
@@ -17,35 +17,21 @@ function getGeoCoordinates(e) {
 	const longitude = parseFloat(longitudeInput.value);
 
 	if (!isNaN(latitude) && !isNaN(longitude)) {
-		fetchData(latitude, longitude);
+		const weatherData = new WeatherAPI();
+
+		weatherData
+				._fetch(latitude, longitude)
+				.then(resp => processingData(resp, latitude, longitude));
 	} else {
 		alert('type correct coordinates');
 	}
 }
-
-function fetchData(latitude, longitude) {
-	const API = `https://api.weatherbit.io/v2.0/current?key=${API__KEY}&lat=${latitude}&lon=${longitude}&units=I`;
-	const weatherData = fetch(API);
-
-	weatherData
-		.then(resp => {
-			if (resp.ok) {
-				return resp.json();
-			}
-			return Promise.reject(resp);
-		})
-
-		.then(data => processingData(data, latitude, longitude))
-		.catch(err => console.log(err));
-}
-
 function processingData(data, latitude, longitude) {
 	const temperature = data.data[0].app_temp;
 	const city = data.data[0].city_name;
 
 	updateContent(temperature, city, latitude, longitude);
 }
-
 function updateContent(temperature, city, latitude, longitude) {
 	const latitudeText = document.querySelector('.weather__lat');
 	const longitudeText = document.querySelector('.weather__lng');
