@@ -1,69 +1,39 @@
-const apiUrl = 'http://localhost:3000/users';
+import ApiHandler from './ApiHandler.js';
+const resource = '/users';
 
-const submitBtn = document.querySelector('.form__submit');
+const form = document.querySelector('form');
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-	loadUsers();
-	submitBtn.addEventListener('click', getDataFromInput);
-}
+	const apiHandler = new ApiHandler();
+	apiHandler.load(resource).then(resp => insertUsers(resp));
 
-function loadUsers() {
-	const promise = fetchGet(apiUrl);
+	form.addEventListener('submit', getDataFromInput);
 
-	promise.then(data => insertUsers(data)).catch(err => console.error(err));
-}
+	function getDataFromInput(e) {
+		// i tak strone przeladowuje :|
+		e.preventDefault();
+		e.stopPropagation();
+		const name = document.querySelector('.form__field--first-name').value;
+		const lastName = document.querySelector('.form__field--last-name').value;
 
-function fetchGet(url) {
-	return fetch(url).then(resp => {
-		if (resp.ok) {
-			return resp.json();
+		if (name != '' && lastName != '') {
+			const userData = {
+				firstName: name,
+				lastName: lastName,
+			};
+			apiHandler.create(resource, userData).then(data => console.log(data));
 		}
+	}
 
-		return Promise.reject(resp);
-	});
-}
+	function insertUsers(usersList) {
+		const ulElement = document.querySelector('.users');
+		ulElement.innerHTML = '';
+		usersList.forEach(user => {
+			const liElement = document.createElement('li');
+			liElement.innerText = `${user.firstName} ${user.lastName}`;
 
-function getDataFromInput(e) {
-	e.preventDefault();
-	const name = document.querySelector('.form__field--first-name').value;
-	const lastName = document.querySelector('.form__field--last-name').value;
-
-	if (name != '' && lastName != '') {
-		const userData = {
-			firstName: name,
-			lastName: lastName,
-		};
-		sendDataToServer(userData);
-	} 
-}
-function sendDataToServer(userData) {
-	const options = {
-		method: 'POST',
-		body: JSON.stringify(userData),
-		headers: { 'Content-Type': 'application/json' },
-	};
-	const promise = fetch(apiUrl, options);
-
-	promise
-		.then(resp => {
-			if (resp.ok) {
-				return resp.json();
-			}
-			return Promise.reject(resp);
-		})
-		.then(data => console.log(data))
-		.catch(err => console.error(err));
-        // nie dodaje finally() z odswiezaniem wynikow, bo widze ze nie jest to potrzebne 
-}
-
-function insertUsers(usersList) {
-	const ulElement = document.querySelector('.users');
-	ulElement.innerHTML = '';
-	usersList.forEach(user => {
-		const liElement = document.createElement('li');
-		liElement.innerText = `${user.firstName} ${user.lastName}`;
-
-		ulElement.appendChild(liElement);
-	});
+			ulElement.appendChild(liElement);
+		});
+	}
 }
