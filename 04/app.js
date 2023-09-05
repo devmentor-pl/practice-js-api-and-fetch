@@ -36,8 +36,9 @@ function getData(lat, lon) {
       }
     })
     .then((data) => {
-      const summary = data.data[0].weather.description;
-      const temperature = data.data[0].temp;
+      const [city] = data.data;
+      const summary = city.weather.description;
+      const temperature = city.temp;
       insertData(lat, lon, summary, temperature);
     })
     .catch((err) => console.error('err', err));
