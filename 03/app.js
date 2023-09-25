@@ -3,9 +3,7 @@ const sectionEl = document.querySelector("section");
 
 function init() {
   const btn = sectionEl.querySelector("button");
-  if (btn) {
-    btn.addEventListener("click", getIp);
-  }
+  btn.addEventListener("click", getIp);
 }
 
 const getIp = () => {

@@ -3,9 +3,7 @@ const formEl = document.querySelector("form");
 
 function init() {
   console.log("DOM");
-  if (formEl) {
     formEl.addEventListener("submit", setInputsValue);
-  }
 }
 
 const setInputsValue = (e) => {
