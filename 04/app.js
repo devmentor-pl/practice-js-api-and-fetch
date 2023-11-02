@@ -33,9 +33,13 @@ function displayApiData(data, latitude, longitude) {
   const weatherLat = document.querySelector('.weather__lat');
   const weatherLng = document.querySelector('.weather__lng');
   const weatherSummary = document.querySelector('.weather__summary');
-  const weatherTemp = document.querySelector('.weather__temperature');
+  const weatherTemperature = document.querySelector('.weather__temperature');
+
+  const { description } = data.data[0].weather;
+  const { temp } = data.data[0];
+
   weatherLat.textContent = latitude;
   weatherLng.textContent = longitude;
-  weatherSummary.textContent = data.data[0].weather.description;
-  weatherTemp.textContent = data.data[0].temp;
+  weatherSummary.textContent = description;
+  weatherTemperature.textContent = temp;
 }
