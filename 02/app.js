@@ -3,13 +3,11 @@ document.addEventListener('DOMContentLoaded', init);
 function init() {
   const divList = document.querySelectorAll('div');
 
-  setBorderColorAsync(divList[0], 'red').then(() => {
-    setBorderColorAsync(divList[1], 'blue').then(() => {
-      setBorderColorAsync(divList[2], 'green')
-        .finally(console.log('Finish'))
-        .catch((err) => console.error(err));
-    });
-  });
+  setBorderColorAsync(divList[0], 'red')
+    .then(() => setBorderColorAsync(divList[1], 'blue'))
+    .then(() => setBorderColorAsync(divList[2], 'green'))
+    .finally(() => console.log('Finish'))
+    .catch((err) => console.error(err));
 }
 
 function setBorderColorAsync(element, color) {
