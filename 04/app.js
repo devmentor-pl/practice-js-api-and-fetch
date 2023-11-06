@@ -35,8 +35,11 @@ function displayApiData(data, latitude, longitude) {
   const weatherSummary = document.querySelector('.weather__summary');
   const weatherTemperature = document.querySelector('.weather__temperature');
 
-  const { description } = data.data[0].weather;
-  const { temp } = data.data[0];
+  const [firstResult] = data.data;
+  const {
+    temp,
+    weather: { description },
+  } = firstResult;
 
   weatherLat.textContent = latitude;
   weatherLng.textContent = longitude;
