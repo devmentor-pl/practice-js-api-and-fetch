@@ -1,0 +1,68 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e0e0e0;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.form, .weather {
+    flex: 1 1 100px;
+    max-width: 400px;
+}
+
+.form, .weather {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.weather {
+    text-align: center;
+}
+
+.form__row {
+    margin-bottom: 20px;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.from__field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form__submit {
+    background-color: #1976D2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form__submit:hover {
+    background-color: #1565C0;
+}
+
+.weather strong {
+    color: #1976D2;
+}
+
