@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.data && data.data.length > 0) {
                     // Jesli dane sa prawidlowe, wywoluje funkcje do wyswietlenia informacji o pogodzie
                     displayWeather(data);
+                    // Pokazujemy sekcje z informacjami o pogodzie
+                    document.querySelector('.weather').style.display = 'block';
                 } else {
                     // Jesli danych nie ma lub tablica jest pusta, rejestruje blad w konsoli 
                     console.error('Weather data not found');
