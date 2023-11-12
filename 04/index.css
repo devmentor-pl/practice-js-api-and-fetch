@@ -28,6 +28,7 @@ body {
 
 .weather {
     text-align: center;
+    display: none;
 }
 
 .form__row {
