@@ -19,3 +19,17 @@ function setBorderColorAsync(element, color, callback) {
         callback();
     }, Math.random() * 3000);
 }
+
+setBorderColorAsync(divList[0], 'red', firstDiv);
+
+function firstDiv() {
+    setBorderColorAsync(divList[1], 'blue', secondDiv);
+}
+
+function secondDiv() {
+    setBorderColorAsync(divList[2], 'green', thirdDiv);
+}
+
+function thirdDiv() {
+    console.log('end');
+}
