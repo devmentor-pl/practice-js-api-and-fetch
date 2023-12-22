@@ -6,27 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Mateusz Bogolubow">
     <title>JavaScript: API & FETCH - #04, devmentor.pl</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <form class="form">
-        <div class="form__row">
-            <label class="form__label">
-                latitude: <input class="form__field form__field--lat" />
-            </label>
-        </div>
-        <div class="form__row">
-            <label class="form__label">
-                    longitude: <input class="form__field form__field--lng" />
-            </label>
-        </div>
-        <div class="form__row">
-            <input class="form__submit" type="submit"/>
-        </div>
-    </form>
+    <div class="container">
+        <form class="form">
+            <div class="form__row">
+                <label class="form__label">
+                    latitude: <input class="form__field form__field--lat" />
+                </label>
+            </div>
+            <div class="form__row">
+                <label class="form__label">
+                        longitude: <input class="form__field form__field--lng" />
+                </label>
+            </div>
+            <div class="form__row">
+                <input class="form__submit" type="submit"/>
+            </div>
 
-    <section class="weather">
-        <p>Pogodę w obecnej chwili w miejscu o szerokości geograficznej: <strong class="weather__lat">XXX</strong> i długości geograficznej: <strong class="weather__lng">YYY</strong> można określić jako: <strong class="weather__summary">???</strong>, gdzie temperatura wynosi: <strong class="weather__temperature">0</strong>&#8457;</p>
-    </section>
+        </form>
     
+        <section class="weather">
+            <p>Pogodę w obecnej chwili w miejscu o szerokości geograficznej: <strong class="weather__lat">XXX</strong> i długości geograficznej: <strong class="weather__lng">YYY</strong> można określić jako: <strong class="weather__summary">???</strong>, gdzie temperatura wynosi: <strong class="weather__temperature">0</strong>°C</p>
+            <p class="weather__advice">...</p>
+        </section>
+    </div>
+    <script src="./app.js"></script>
 </body>
 </html>
