@@ -6,6 +6,7 @@ function init() {
   const latitudeEl = document.querySelector('.form__field--lat');
   const longitudeEl = document.querySelector('.form__field--lng');
   const formEl = document.querySelector('form');
+
   formEl &&
     formEl.addEventListener('submit', (e) =>
       getData(e, latitudeEl, longitudeEl, apiKey)
@@ -14,6 +15,15 @@ function init() {
 
 async function getData(e, latitudeEl, longitudeEl, apiKey) {
   e.preventDefault();
+  if (!latitudeEl.value && !longitudeEl.value) {
+    alert('Proszę wypełnić oba pola.');
+    return;
+  }
+  if (isNaN(Number(latitudeEl.value)) && isNaN(Number(longitudeEl.value))) {
+    alert('Błędne dane.Podaj prawidłową długość i szerokość geograficzną.');
+    return;
+  }
+
   const url = `https://api.weatherbit.io/v2.0/current?lat=${latitudeEl.value}&lon=-${longitudeEl.value}&key=${apiKey}&include=minutely`;
 
   try {
@@ -22,7 +32,6 @@ async function getData(e, latitudeEl, longitudeEl, apiKey) {
       throw new Error(`Błąd: ${response.status}`);
     }
     const allData = await response.json();
-    console.log(allData.data[0].weather);
     displayData(allData, latitudeEl, longitudeEl);
   } catch (error) {
     console.log('Błąd', error);
@@ -36,8 +45,13 @@ function displayData(allData, latitudeEl, longitudeEl) {
   const tempEl = document.querySelector('.weather__temperature');
   latTextEl.textContent = latitudeEl.value;
   lngTextEl.textContent = longitudeEl.value;
-  summaryEl.textContent = allData.data[0].weather.description;
-  const tempValueCel = parseInt(allData.data[0].temp);
-  let tempValueFahr = tempValueCel * 1.8 + 32;
+  const {
+    weather: {description},
+    temp,
+  } = allData.data[0];
+
+  summaryEl.textContent = description;
+  const tempValueCel = parseInt(temp);
+  let tempValueFahr = (tempValueCel * 1.8 + 32).toFixed(0);
   tempEl.textContent = tempValueFahr;
 }
