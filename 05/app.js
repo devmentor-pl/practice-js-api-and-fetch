@@ -58,7 +58,7 @@ function addUsers() {
     e.preventDefault();
     console.log(e.target.elements[0].value);
     const {firstName, lastName} = e.target.elements;
-    if (firstName.value && lastName.value) {
+    if (!firstName.value && !lastName.value) {
       alert('Puste pola formularza');
       return;
     }
