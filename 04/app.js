@@ -24,7 +24,7 @@ async function getData(e, latitudeEl, longitudeEl, apiKey) {
     return;
   }
 
-  const url = `https://api.weatherbit.io/v2.0/current?lat=${latitudeEl.value}&lon=-${longitudeEl.value}&key=${apiKey}&include=minutely`;
+  const url = `https://api.weatherbit.io/v2.0/current?lat=${latitudeEl.value}&lon=-${longitudeEl.value}&key=${apiKey}&units=I&lang=pl`;
 
   try {
     const response = await fetch(url);
@@ -51,7 +51,8 @@ function displayData(allData, latitudeEl, longitudeEl) {
   } = allData.data[0];
 
   summaryEl.textContent = description;
-  const tempValueCel = parseInt(temp);
-  let tempValueFahr = (tempValueCel * 1.8 + 32).toFixed(0);
-  tempEl.textContent = tempValueFahr;
+  const tempValueFah = parseInt(temp);
+  // let tempValueFahr = (tempValueCel * 1.8 + 32).toFixed(0);
+  // tempEl.textContent = tempValueFahr;
+  tempEl.textContent = tempValueCel;
 }
