@@ -6,4 +6,8 @@ function init() {
     const buttonEl = document.querySelector('button');
     const spanEl = document.querySelector('span');
 
+    if (buttonEl) {
+        buttonEl.addEventListener('click', getId);
+    }
 
+    
