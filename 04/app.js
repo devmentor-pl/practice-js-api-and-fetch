@@ -9,14 +9,14 @@ function getWeather() {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         const [lat, lon] = [...e.currentTarget.elements];
-        if (simplyValid(lat.value, lon.value)) {
+        if (valid(lat.value, lon.value)) {
             weatherData(lat.value,lon.value)
         };
     });
 };
 
-function WeatherData(latitude, longitude) {
-    const api = 'https://api.weatherbit.io/v2.0/current';
+function weatherData(latitude, longitude) {
+    const api = 'https://api.weatherbit.io/v2.0/current?';
     const apiKey = '2152939f82134cf69940f7dd9139bf89';
     return fetch(`${api}key=${apiKey}&lat=${latitude}&lon=${longitude}&lang=pl`)
         .then(response => {
@@ -24,7 +24,7 @@ function WeatherData(latitude, longitude) {
                 return response.json()
             } else throw new Error('Please try again. Cant get current weather')
         }).then(data => {
-            displayWeatherInformation(data, latitude, longitude)
+            weatherInfo(data, latitude, longitude)
         });
 };
 
@@ -37,5 +37,20 @@ function weatherInfo(fetchData, latitude, longitude) {
     temperature.textContent = `${temp}°C`;
 };
 
+function valid(value1, value2) {
+    let isValid = false;
+    if (value1 && value2 !== '') {
+        if (!isNaN(value1) && !isNaN(value2)) {
+            isValid = true;
+        } else {
+            alert('It has to be number')
+        };
+    } else {
+        alert('Put some value in to the field/s');
+    };
+    return isValid;
+};
+
+//Notatki przerobić program na sprawdzanie jakości powietrza
 
 
