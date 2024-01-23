@@ -46,8 +46,6 @@ function fetchPost(url, data) {
     return fetch(url, options)
 }  
 
-
-
 function loadUsers() {
     const promise = fetchGet(apiUrl);
 
