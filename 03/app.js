@@ -10,4 +10,7 @@ function init() {
         buttonEl.addEventListener('click', getId);
     }
 
-    
+    function getId() {
+        const promise = fetch('https://api.ipify.org?format=json');
+
+
