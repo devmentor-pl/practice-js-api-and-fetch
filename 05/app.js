@@ -14,6 +14,31 @@ function addUser() {
         formEl.addEventListener('submit', handleSubmit);
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        console.log(e.target.elements)
+        const firstNameEl = e.target.elements[0];
+        const firstName = firstNameEl.value;
+        const lastNameEl = e.target.elements[1];
+        const lastName = lastNameEl.value;
+
+        if(firstName && lastName) {
+            fetchPost(apiUrl, {firstName, lastName})
+                .then(resp => {
+                    if(resp.ok) {
+                        return resp.json();
+                    }
+                })
+                .then(data => console.log(data))
+                .catch(err => console.error(err))
+                .finally( loadUsers );
+        }
+    }
+}
+
+
+
 function loadUsers() {
     const promise = fetchGet(apiUrl);
 
