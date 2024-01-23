@@ -13,4 +13,20 @@ function init() {
     function getId() {
         const promise = fetch('https://api.ipify.org?format=json');
 
+        promise
+            .then(resp => {
+                if (resp.ok) {
+                    return resp.json();
+                } else {
+                    throw new Error('Błąd HTTP');
+                }
+            })
+            .then(data => {
+                if (data && spanEl) {
+                    spanEl.innerText = data.ip;
+                }
+            })
+            .catch(err => console.error(err));
+    }
+}
 
