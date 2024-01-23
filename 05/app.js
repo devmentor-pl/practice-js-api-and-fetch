@@ -4,7 +4,15 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadUsers();
+    addUser();
 }
+
+function addUser() {
+    const formEl = document.querySelector('.form');
+
+    if(formEl) {
+        formEl.addEventListener('submit', handleSubmit);
+    }
 
 function loadUsers() {
     const promise = fetchGet(apiUrl);
