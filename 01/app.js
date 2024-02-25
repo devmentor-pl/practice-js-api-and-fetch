@@ -8,15 +8,19 @@ function init() {
 		.then(() => setBorderColorAsync(divList[2], "green"))
 		.then(() => console.log("finish job !"))
 		.catch((error) => {
-			throw new Error(error);
+			console.error(error);
 		});
+}
 
-	function setBorderColorAsync(element, color) {
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				element.style.border = `3px solid ${color}`;
-				resolve();
-			}, Math.random() * 3000);
-		});
-	}
+function setBorderColorAsync(element, color) {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			setBorderColor(element, color);
+			resolve();
+		}, Math.random() * 3000);
+	});
+}
+
+function setBorderColor(element, color) {
+	element.style.border = `3px solid ${color}`;
 }
