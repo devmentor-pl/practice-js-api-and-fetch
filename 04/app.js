@@ -48,10 +48,8 @@ async function getWeather(latitude, longitude) {
 		}
 
 		const data = await response.json();
-		return {
-			weather: data.data[0].weather,
-			temp: data.data[0].temp,
-		};
+		const { weather, temp } = data.data[0];
+		return { weather, temp };
 	} catch (error) {
 		throw new Error("Error parsing response:", error);
 	}
