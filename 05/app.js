@@ -44,6 +44,11 @@ function setupForm() {
 		const firstNameInput = document.querySelector(".form__field--first-name");
 		const lastNameInput = document.querySelector(".form__field--last-name");
 
+		if(!firstNameInput.value || !lastNameInput.value) {
+			alert("Please fill in all fields");
+			return;
+		}
+
 		const newUser = {
 			firstName: firstNameInput.value,
 			lastName: lastNameInput.value,
