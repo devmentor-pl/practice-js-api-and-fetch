@@ -46,6 +46,12 @@ function addUser() {
         const firstName = document.querySelector('.form__field--first-name');
         const lastName = document.querySelector('.form__field--last-name');
         
+        // Check if the first name and last name fields are filled
+        if(!firstName.value || !lastName.value) {
+            alert('Please fill in both fields');
+            return;
+        }
+
         // Create a user object with the values of the first name and last name fields
         const user = {
             firstName: firstName.value,
