@@ -68,7 +68,12 @@ function addUser() {
         };
         // Send a POST request to the API with the user data
         fetch(apiUrl, options)
-            .then(resp => console.log(resp))
+            .then(resp => {
+                console.log(resp);
+                // Clear the form fields after a successful submission
+                firstName.value = '';
+                lastName.value = '';
+            })
             .catch(err => console.error(err))
             .finally(() => loadUsers());
     }); 
