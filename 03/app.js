@@ -4,16 +4,13 @@ function init() {
   console.log("DOM");
   
   const button = document.querySelector("button");
-  const span = document.querySelector("span");
 
-  fetchIp().then((resp) => {
-    button.addEventListener("click", () => showIp(resp, span));
-  });
+  button.addEventListener("click", showIp);
 }
 
-function showIp(data, place) {
-  console.log(place);
-  place.innerText = data.ip;
+function showIp() {
+  const span = document.querySelector("span");
+  fetchIp().then(resp => placeId(resp, span));
 }
 
 function fetchIp() {
@@ -22,4 +19,8 @@ function fetchIp() {
       return resp.json();
     }
   });
+}
+
+function placeId(data, place) {
+  place.innerText = data.ip;
 }
