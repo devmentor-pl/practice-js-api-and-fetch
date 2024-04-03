@@ -20,8 +20,8 @@ function getCoordinates() {
   const clientCoordinates = coordinatesList.map((ele) => {
     return ele.value;
   });
-  const latitude = clientCoordinates[0];
-  const longitude = clientCoordinates[1];
+
+  const [latitude, longitude] = clientCoordinates;
   return { latitude, longitude };
 }
 
@@ -39,8 +39,9 @@ function fetchAPI(latitude, longitude) {
     .finally(console.log("Fetching Weather ends."));
 }
 
+//Użyć tutaj destrukturyzacji.
 function extractAPIData(obj) {
-  const weatherAPIData = obj.data[0];
+  const [weatherAPIData] = obj.data;
   return weatherAPIData;
 }
 
