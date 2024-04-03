@@ -29,6 +29,21 @@
       "firstName": "Edward",
       "lastName": "Onabiegła",
       "id": 6
+    },
+    {
+      "firstName": "Maciej",
+      "lastName": "Milkowski",
+      "id": 7
+    },
+    {
+      "firstName": "Kuba",
+      "lastName": "Mistrzyj",
+      "id": 8
+    },
+    {
+      "firstName": "Mikołaj",
+      "lastName": "Poręba",
+      "id": 9
     }
   ]
 }

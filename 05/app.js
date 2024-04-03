@@ -41,7 +41,10 @@ function insertUsers(usersList) {
 function postUser(evt) {
   evt.preventDefault();
   const {nameData} = bundleUserInput();
-  console.log(JSON.stringify(nameData));
+  const {firstName, lastName} = nameData;
+  if (!firstName || !lastName) {
+    return console.log('Invalid data');
+  }
 
   const options = {
     method: 'POST',
