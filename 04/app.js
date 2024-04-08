@@ -23,8 +23,10 @@ form.addEventListener('submit', (event) => {
     const longitude = lngInput.value;
     const apiUrl = `https://api.weatherbit.io/v2.0/current?key=${apiKey}&lat=${latitude}&lon=${longitude}`;
 
-    fetch(apiUrl).then(response => response.json()).then(data => {
-        const weatherData = data.data[0];
+    // fetch(apiUrl).then(response => response.json()).then(data => {
+    //     const weatherData = data.data[0];
+    fetch(apiUrl).then(response => response.json()).then(({ data }) => {
+        const weatherData = data[0];
 
         weatherLat.textContent = weatherData.lat;
         weatherLng.textContent = weatherData.lon;
