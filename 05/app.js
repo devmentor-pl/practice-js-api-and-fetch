@@ -46,6 +46,11 @@ function addUser(event) {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
 
+    if(!firstName || !lastName) {
+        alert('Proszę o poprawne wypełnienie formularza.');
+        return;
+    }
+    
     const user = {
         firstName: firstName,
         lastName: lastName
