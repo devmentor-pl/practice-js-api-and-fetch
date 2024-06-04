@@ -24,7 +24,6 @@ function init() {
 
 	const submitFn = e => {
 		e.preventDefault();
-		// console.log("submit ok");
 
 		latArea.innerText = latInputValue;
 		longArea.innerText = longtInputValue;
