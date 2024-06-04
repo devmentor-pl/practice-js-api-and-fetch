@@ -29,7 +29,7 @@ function init() {
 		latArea.innerText = latInputValue;
 		longArea.innerText = longtInputValue;
 
-		//API
+		//Fetch
 
 		const promise = fetch(`https://api.weatherbit.io/v2.0/current?key=${apiKey}&lat=${latInputValue}&lon=${longtInputValue}&units=I&lang=pl`);
 
@@ -40,7 +40,12 @@ function init() {
 				}
 			})
 			.then(data => {
-				console.log(data);
+                // console.log(data);
+				// console.log(data.data[0].weather.description);
+				// console.log(data.data[0].temp);
+                weatherType.innerText = data.data[0].weather.description
+                weatherTemp.innerText = data.data[0].temp
+
 			})
 			.catch(err => console.error(err));
 	};
