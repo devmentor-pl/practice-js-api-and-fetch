@@ -1,37 +1,49 @@
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-    console.log('DOM');
+	console.log("DOM");
 
-    //FORM
-    const formEl = document.querySelector('.form')
-    const latInput = document.querySelector('.form__field--lat')
-    const latInputValue = latInput.value
-    // console.log(latInputValue)
-    const longtInput = document.querySelector('.form__field--lng')
-    const longtInputValue = longtInput.value
-    // console.log(longtInputValue)
-    const submitBtn = document.querySelector('.form__submit')
+	//FORM
+	const formEl = document.querySelector(".form");
+	const latInput = document.querySelector(".form__field--lat");
+	const latInputValue = latInput.value;
+	// console.log(latInputValue)
+	const longtInput = document.querySelector(".form__field--lng");
+	const longtInputValue = longtInput.value;
+	// console.log(longtInputValue)
+	const submitBtn = document.querySelector(".form__submit");
 
-    //WEATHER SECTION
-    const latArea = document.querySelector('.weather__lat')
-    const longArea = document.querySelector('.weather__lng')
-    const weatherType = document.querySelector('.weather__summary')
-    const weatherTemp = document.querySelector('.weather__temperature')
+	//WEATHER SECTION
+	const latArea = document.querySelector(".weather__lat");
+	const longArea = document.querySelector(".weather__lng");
+	const weatherType = document.querySelector(".weather__summary");
+	const weatherTemp = document.querySelector(".weather__temperature");
 
-    
-    
-    const submitFn = (e) => {
-        e.preventDefault()
-        console.log('submit ok');
+    //API 
+    const apiKey = '17151440318c4f7f8a5f08e52a41c0de'
 
-        latArea.innerText = latInputValue
-        longArea.innerText = longtInputValue
+	const submitFn = e => {
+		e.preventDefault();
+		// console.log("submit ok");
 
+		latArea.innerText = latInputValue;
+		longArea.innerText = longtInputValue;
 
+		//API
 
+		const promise = fetch(`https://api.weatherbit.io/v2.0/current?key=${apiKey}&lat=${latInputValue}&lon=${longtInputValue}&units=I&lang=pl`);
 
-    }
-    
-    formEl.addEventListener('submit', submitFn)
+		promise
+			.then(resp => {
+				if (resp.ok) {
+					return resp.json();
+				}
+			})
+			.then(data => {
+				console.log(data);
+			})
+			.catch(err => console.error(err));
+	};
+
+	formEl.addEventListener("submit", submitFn);
 }
