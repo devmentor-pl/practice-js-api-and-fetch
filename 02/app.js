@@ -14,9 +14,9 @@ function init() {
 
 	setBorderColorAsync(divList[0], 'red')
 		.then(() => setBorderColorAsync(divList[1], 'blue'))
-		.then(() => setBorderColorAsync(divList[2]), 'green')
+		.then(() => setBorderColorAsync(divList[2], 'green'))
 		.finally(() => {
-			console.log('Finish ??');
+			console.log('Finish');
 		})
 }
 
