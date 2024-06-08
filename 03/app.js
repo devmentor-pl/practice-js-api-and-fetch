@@ -9,10 +9,11 @@ function getIpFromApi() {
   fetch(apiUrl)
     .then((response) => {
       if (response.ok) return response.json();
-      Promise.reject(response);
     })
     .then((data) => {
       document.querySelector("span").innerText = data.ip;
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      return Promise.reject(error);
+    });
 }
