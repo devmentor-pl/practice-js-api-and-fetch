@@ -10,7 +10,7 @@ function init() {
         .catch(err => console.error(err))
 }       
 
-function setBorderColorAsync(element, color, callback) {
+function setBorderColorAsync(element, color) {
     return new Promise((resolve, reject) => {
         if(element && element instanceof HTMLElement) {
             setTimeout(() => {
