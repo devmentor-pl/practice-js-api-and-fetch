@@ -3,7 +3,31 @@ const apiUrl = 'http://localhost:3000/users';
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-    loadUsers();
+    const formEl = document.querySelector('.form')
+
+    formEl.addEventListener('submit', e => {
+        e.preventDefault()
+
+        const firstNameEl = formEl.querySelector('.form__field--first-name')
+        const firstNameValue = firstNameEl.value
+        const lastNameEl = formEl.querySelector('.form__field--last-name')
+        const lastNameValue = lastNameEl.value
+
+        const data = {
+            firstName: firstNameValue, lastName: lastNameValue,
+        }
+
+        const options = {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+        }
+        fetch(apiUrl, options)
+            .then(resp => console.log(resp))
+            .catch(err => console.error(err))
+            .finally( loadUsers() )
+    })
+    loadUsers()
 }
 
 function loadUsers() {
