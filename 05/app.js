@@ -40,7 +40,6 @@ function insertUsers(usersList) {
     });
 }
 //dodaję nowego uzytkownika przez formularz
-
 function addUser(event) {
     event.preventDefault();
 
