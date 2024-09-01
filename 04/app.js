@@ -8,21 +8,21 @@ function init() {
       e.preventDefault();
       const latitude = document.querySelector(".form__field--lat").value;
       const longitude = document.querySelector(".form__field--lng").value;
-      //tu należy wpisać swój klucz
-      const key = "";
+    //tu należy wpisać swój klucz  
+    const key = "f8b504845f0346fc845bbe08adfc8ac4";
       fetch(
         `https://api.weatherbit.io/v2.0/current?key=${key}&lat=${latitude}&lon=${longitude}&lang=pl&units=I`
       )
         .then((resp) => resp.json())
         .then((respJson) => showData(respJson.data[0], latitude, longitude))
-        .catch(() => console.log("Wystąpił błąd"));
+        .catch(() => console.log('Wystąpił błąd'))
     });
   }
 }
 
 const showData = (data, latitude, longitude) => {
-  console.log(data);
-
+    console.log(data);
+    
   const {
     weather: { description },
     temp,
