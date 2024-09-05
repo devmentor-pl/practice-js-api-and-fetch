@@ -19,12 +19,20 @@ function showData() {
   const weatherSummary = document.querySelector(".weather__summary");
   const weatherTemp = document.querySelector(".weather__temperature");
   getData()
-    .then((resp) => {
-      console.log(resp.data);
-      weatherLat.innerText = resp.data[0].lat;
-      weatherLng.innerText = resp.data[0].lon;
-      weatherSummary.innerText = resp.data[0].weather.description;
-      weatherTemp.innerText = resp.data[0].temp;
+    .then(({ data }) => {
+      console.log(data);
+      const [
+        {
+          lat,
+          lon,
+          weather: { description },
+          temp,
+        },
+      ] = data;
+      weatherLat.innerText = lat;
+      weatherLng.innerText = lon;
+      weatherSummary.innerText = description;
+      weatherTemp.innerText = temp;
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
@@ -37,6 +45,15 @@ function getCoordinates() {
   const longitudeInput = formEl.querySelector(".form__field--lng");
   const latitudeValue = latitudeInput.value;
   const longitudeValue = longitudeInput.value;
+  if (!latitudeValue || !longitudeValue) {
+    console.error(
+      "Wartości szerokości i długości geograficznej musza byc podane!"
+    );
+    alert("Wartości szerokości i długości geograficznej musza byc podane!");
+    return Promise.reject(
+      "Wartości szerokości i długości geograficznej musza byc podane!"
+    );
+  }
   console.log(latitudeValue, longitudeValue);
   formEl.reset();
   return Promise.resolve({ latitudeValue, longitudeValue });
