@@ -31,7 +31,7 @@ function addUser() {
       ".form__field--first-name"
     );
     const { value: lastName } = formEl.querySelector(".form__field--last-name");
-    const data = { firstName: firstName, lastName: lastName };
+    const data = { firstName, lastName };
     formEl.reset();
     console.log(data);
     const options = {
