@@ -1,0 +1,23 @@
+{
+  "name": "practice-js-api-and-fetch",
+  "version": "1.0.0",
+  "description": "Umiejęność korzystania z *API* jest często wykorzystywaną umiejęnością w pracy Front-end Developer-a.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaBuller/practice-js-api-and-fetch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnaBuller/practice-js-api-and-fetch/issues"
+  },
+  "homepage": "https://github.com/AnnaBuller/practice-js-api-and-fetch#readme",
+  "dependencies": {
+    "json-server": "0.16.3"
+  }
+}
