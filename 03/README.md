@@ -7,7 +7,7 @@
 
 Tym razem Twoim zadaniem jest napisanie kodu, który po kliknięciu w `<button/>` pozwoli pobrać numer IP (jakim łączysz się z Internetem) i wstawić go do elementu `<span/>`.
 
-Do rozwiązanie tego zadania możesz użyć API dostępnego pod tym adresem: [https://www.ipify.org](https://www.ipify.org/). Dane odbierane z API powinny być w formacie JSON.
+Do rozwiązanie tego zadania możesz użyć API dostępnego pod tym adresem: [https://www.ipify.org](https://www.ipify.org/) lub [http://ip-api.com](http://ip-api.com) - drugi nie wymaga `key`. Dane odbierane z API powinny być w formacie JSON.
 
  **Uwaga!** Podczas tworzenia rozwiązań wykorzystujących API, możesz się spotkać z problemem dotyczącym [CORS](https://sekurak.pl/czym-jest-cors-cross-origin-resource-sharing-i-jak-wplywa-na-bezpieczenstwo/). Jeśli on wystąpi, to nie będziesz mógł pobrać danych z API. Wszystko zależy od konfiguracji przeglądarki i serwera. Problem zidentyfikujesz przez [odpowiedni komunikat w konsoli](https://www.google.com/search?q=cors+problem&source=lnms&tbm=isch). Możesz próbować wyłączyć to zabezpieczenie w przeglądarce przez [odpowiedni plugin](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) lub wykorzystać [pośrednika](https://github.com/Rob--W/cors-anywhere/).
  Problem z CORS może być spowodowany również tym, że uruchamiasz plik przez protokół `file://`. Wówczas wystarczy, że uruchomisz plik `.html` przy pomocy rozszerzenia [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) do VSC.
