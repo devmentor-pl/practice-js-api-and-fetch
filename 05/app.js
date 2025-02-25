@@ -4,20 +4,21 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadUsers();
+    getUserData()
 }
 
 function loadUsers() {
-    const promise = fetchGet(apiUrl);
+    const promise = _fetch(apiUrl);
 
     promise
         .then(data => insertUsers(data))
         .catch(err => console.error(err));
 }
 
-function fetchGet(url) {
-    return fetch(url)
+function _fetch(url, options) {
+    return fetch(url, options)
         .then(resp => {
-            if(resp.ok) {
+            if (resp.ok) {
                 return resp.json();
             }
 
@@ -34,4 +35,34 @@ function insertUsers(usersList) {
 
         ulElement.appendChild(liElement);
     });
+}
+
+function getUserData() {
+    const form = document.querySelector('.form')
+    if (form) {
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+
+            const [firstNameInput, lastNameInput] = form.elements
+
+            const data = {
+                firstName: firstNameInput.value,
+                lastName: lastNameInput.value
+            }
+
+            addUserToJSON(data)
+        })
+    }
+}
+
+function addUserToJSON(data) {
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    }
+
+    _fetch(apiUrl, options)
+        .catch(err => console.log(err))
+        .finally(() => loadUsers())
 }
