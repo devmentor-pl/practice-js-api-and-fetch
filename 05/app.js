@@ -34,4 +34,37 @@ function insertUsers(usersList) {
 
         ulElement.appendChild(liElement);
     });
+    submit();
+}
+
+function submit() {
+    const btn = document.querySelector('.form__submit');
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        const firstName = document.querySelector('.form__field--first-name').value;
+        const lastName = document.querySelector('.form__field--last-name').value;
+        addUser(firstName, lastName);
+    });
+}
+
+function addUser(firstName, lastName, id) {
+
+    const newUser = {
+        "firstName": firstName,
+        "lastName": lastName,
+    }
+
+    fetch(apiUrl, {
+        method: "post",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newUser),
+    })
+    .then(res => res.json())
+    .then(res => {
+        console.log(res);
+    })
+    .finally(loadUsers())
+
 }
