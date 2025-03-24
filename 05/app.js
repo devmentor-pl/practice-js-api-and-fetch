@@ -1,12 +1,11 @@
 const apiUrl = 'http://localhost:3000/users';
 
-document.addEventListener('DOMContentLoaded', init);
-
-function init() {
+const init = () => {
     loadUsers();
+    addUser();
 }
 
-function loadUsers() {
+const loadUsers = () => {
     const promise = fetchGet(apiUrl);
 
     promise
@@ -14,7 +13,7 @@ function loadUsers() {
         .catch(err => console.error(err));
 }
 
-function fetchGet(url) {
+const fetchGet = (url) =>{
     return fetch(url)
         .then(resp => {
             if(resp.ok) {
@@ -25,7 +24,7 @@ function fetchGet(url) {
         });
 }
 
-function insertUsers(usersList) {
+const insertUsers = (usersList) => {
     const ulElement = document.querySelector('.users');
     ulElement.innerHTML = '';
     usersList.forEach(user => {
@@ -35,3 +34,29 @@ function insertUsers(usersList) {
         ulElement.appendChild(liElement);
     });
 }
+
+const addUser = () => {
+    const formEl = document.querySelector('form');
+    formEl.addEventListener('submit', submitForm);
+}
+
+const submitForm = e => {
+    e.preventDefault();
+
+    const firstName = document.querySelector('.form__field--first-name');
+    const lastName = document.querySelector('.form__field--last-name');
+    const user = {firstName: firstName.value, lastName: lastName.value};
+
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {'Content-Type': 'application/json'}
+    };
+
+    fetch(apiUrl, options)
+        .then(resp => console.log(resp))
+        .catch(err => console.error(err))
+        .finally(loadUsers());
+}
+
+document.addEventListener('DOMContentLoaded', init);
