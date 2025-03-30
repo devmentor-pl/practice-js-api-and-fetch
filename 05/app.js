@@ -1,3 +1,4 @@
+
 const apiUrl = 'http://localhost:3000/users';
 
 document.addEventListener('DOMContentLoaded', init);
@@ -34,4 +35,48 @@ function insertUsers(usersList) {
 
         ulElement.appendChild(liElement);
     });
+    inputForm(usersList.length);
+}
+
+let inputs = document.querySelectorAll('.form__field');
+
+inputs.forEach(e => {
+	e.value = '';
+	e.setAttribute('autocomplete','off');
+	e.setAttribute('onkeydown','return alphaOnly(event)');
+	console.log(e);
+});
+
+const alphaOnly = (event => {
+	let key = event.keyCode;
+	return ((key >= 64 && key <= 90) || key == 37 || key == 39 || key == 8); // only letters and left and right arrows characters
+});
+
+function inputForm(idNumber) {
+    document.querySelector('.form__submit').addEventListener('click', e => {
+        e.preventDefault();
+        const firstName = document.querySelector('.form__field--first-name').value;
+        const lastName = document.querySelector('.form__field--last-name').value;
+        addNewUser(firstName, lastName, ++idNumber);
+    });
+}
+
+function addNewUser(firstName, lastName, id) {
+    const newUser = {
+        "id": id,
+        "firstName": firstName,
+        "lastName": lastName,
+    }
+    fetch(apiUrl, {
+        method: "post",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newUser),
+    })
+    .then(res => res.json())
+    .then(res => {
+        console.log(res);
+    })
+    .finally(loadUsers())
 }
