@@ -37,6 +37,5 @@ function setBorderColorAsync(element, color, callback) {
     }
     setTimeout(() => {
         element.style.border = `3px solid ${color}`;
-        // callback();
     }, Math.random() * 3000);
 }
