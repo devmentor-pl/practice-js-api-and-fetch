@@ -11,21 +11,21 @@ function init() {
     //     });
     // });
 
-    setBorderColorZero(divList)
+    setBorderColorFirst(divList)
 
 }
 
-function setBorderColorZero(divs) {
+function setBorderColorFirst(divs) {
     if( divs.length > 0 ) {
-        setBorderColorAsync(divs[0], 'red', () => setBorderColorOne(divs))
+        setBorderColorAsync(divs[0], 'red', () => setBorderColorSecond(divs))
     }
 }
-function setBorderColorOne(divs) {
+function setBorderColorSecond(divs) {
     if( divs.length > 1 ) {
-        setBorderColorAsync(divs[1], 'blue', () => setBorderColorTwo(divs))
+        setBorderColorAsync(divs[1], 'blue', () => setBorderColorThird(divs))
     }
 }
-function setBorderColorTwo(divs) {
+function setBorderColorThird(divs) {
     if( divs.length > 2 ) {
         setBorderColorAsync(divs[2], 'green', () => console.log('finish'))
     }
