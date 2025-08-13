@@ -21,7 +21,7 @@ function setBorderColorAsync(element, color) {
         resolve();
       }, Math.random() * 3000);
     } else {
-      reject('Parametr ~callback~ mus być funkcją');
+      reject('Parametr ~element~ musi być prawidłowym elementem DOM');
     }
   });
 }
