@@ -9,6 +9,26 @@
             "id": 2,
             "firstName": "Kamil",
             "lastName": "Nowak"
+        },
+        {
+            "id": 3,
+            "firstName": "Roman",
+            "lastName": "Zawadzki"
+        },
+        {
+            "id": 4,
+            "firstName": "Karol",
+            "lastName": "Marek"
+        },
+        {
+            "id": 5,
+            "firstName": "Dominik",
+            "lastName": "Zatorski"
+        },
+        {
+            "id": 6,
+            "firstName": "Michał",
+            "lastName": "Kowalczyk"
         }
     ]
 }
