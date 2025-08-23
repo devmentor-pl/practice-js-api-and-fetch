@@ -3,6 +3,9 @@ const apiUrl = 'http://localhost:3000/users';
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+    const form = document.querySelector('.form');
+    form.addEventListener('submit', addUser);
+
     loadUsers();
 }
 
@@ -35,3 +38,27 @@ function insertUsers(usersList) {
         ulElement.appendChild(liElement);
     });
 }
+
+const addUser = function(e) {
+    e.preventDefault()
+    const data = {firstName, lastName} = getData();
+
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {'Content-Type': 'application/json'},
+    };
+
+    fetch(apiUrl, options)
+        .then(resp => console.log(resp))
+        .catch(err => console.error(err))
+        .finally(loadUsers());
+    
+};
+
+const getData = function() {
+    const firstName = document.querySelector('.form__field--first-name').value;
+    const lastName = document.querySelector('.form__field--last-name').value;
+
+    return {firstName, lastName};
+};
