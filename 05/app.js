@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadUsers();
+    addUsers();
 }
 
 function loadUsers() {
@@ -14,10 +15,10 @@ function loadUsers() {
         .catch(err => console.error(err));
 }
 
-function fetchGet(url) {
-    return fetch(url)
+function fetchGet(apiUrl) {
+    return fetch(apiUrl)
         .then(resp => {
-            if(resp.ok) {
+            if (resp.ok) {
                 return resp.json();
             }
 
@@ -33,5 +34,31 @@ function insertUsers(usersList) {
         liElement.innerText = `${user.firstName} ${user.lastName}`;
 
         ulElement.appendChild(liElement);
+    });
+}
+
+function addUsers() {
+    const firstName = document.querySelector('.form__field--first-name');
+    const lastName = document.querySelector('.form__field--first-name');
+    const submit = document.querySelector('.form__submit');
+    submit.addEventListener('click', e => {
+        e.preventDefault();
+
+        const data = {
+            firstName: firstName.value,
+            lastName: lastName.value
+        };
+        console.log(data)
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        fetch(apiUrl, options)
+            .then(resp => console.log(resp))
+            .catch(err => console.error(err))
+            .finally(loadUsers);
     });
 }
