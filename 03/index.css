@@ -1,0 +1,38 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e0e0e0;
+}
+
+section {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background-color: #1976D2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #1565C0;
+}
+
+button:active {
+    box-shadow: 0 1 3px rgba(0, 0, 0, 0.2);
+}
+
+#ipDisplay {
+    font-size: 16px;
+    color:  #333;
+    margin-left: 10px;
+}
