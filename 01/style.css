@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(124, 116, 116);
+}
+
 div {
     padding: 40px;
     border: 3px solid transparent;
