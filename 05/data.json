@@ -1,14 +1,44 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstName": "Jan",
-            "lastName": "Kowalski"
-        },
-        {
-            "id": 2,
-            "firstName": "Kamil",
-            "lastName": "Nowak"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Jan",
+      "lastName": "Kowalski"
+    },
+    {
+      "id": 2,
+      "firstName": "Kamil",
+      "lastName": "Nowak"
+    },
+    {
+      "firstName": "Szymon",
+      "lastName": "Suchanowski",
+      "id": 3
+    },
+    {
+      "firstName": "Piotr",
+      "lastName": "Piotrkowski",
+      "id": 4
+    },
+    {
+      "firstName": "Jan",
+      "lastName": "Janowski",
+      "id": 5
+    },
+    {
+      "firstName": "Tom",
+      "lastName": "Tomkowski",
+      "id": 6
+    },
+    {
+      "firstName": "Adam",
+      "lastName": "Malysz",
+      "id": 7
+    },
+    {
+      "firstName": "Piotr",
+      "lastName": "Piotro",
+      "id": 8
+    }
+  ]
 }
