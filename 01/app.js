@@ -13,9 +13,30 @@ function init() {
 
 }
 
+
+setBorderColorAsync(divList[0], 'red', firstCallback);
+
+function firstCallback() {
+    setBorderColorAsync(divList[1], 'blue' , secondCallback);
+}
+
+function secondCallback() {
+    secondCallback(divList[2], 'green', thirdCallback);
+}
+
+function thirdCallback() {
+    console.log('It works!');
+}
+
+
+
 function setBorderColorAsync(element, color, callback) {
     setTimeout(() => {
         element.style.border = `3px solid ${color}`;
         callback();
     }, Math.random() * 3000);
 }
+
+
+
+
