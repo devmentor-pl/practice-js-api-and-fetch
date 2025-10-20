@@ -1,14 +1,19 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstName": "Jan",
-            "lastName": "Kowalski"
-        },
-        {
-            "id": 2,
-            "firstName": "Kamil",
-            "lastName": "Nowak"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Jan",
+      "lastName": "Kowalski"
+    },
+    {
+      "id": "2",
+      "firstName": "Kamil",
+      "lastName": "Nowak"
+    },
+    {
+      "id": "ddb8",
+      "firstName": "Oleksii",
+      "lastName": "Krylov"
+    }
+  ]
 }
