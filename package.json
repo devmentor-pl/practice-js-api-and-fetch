@@ -1,0 +1,20 @@
+{
+  "name": "practice-js-api-and-fetch",
+  "version": "1.0.0",
+  "description": "> :rocket: *Potrzebujesz pomocy w rozwiązaniu zadania? Nie wiesz, czy Twój kod jest wystarczająco dobry? Chcesz skonsultować CV lub szukasz zespołu, do wspólnego projektu? To wszystko znajdziesz na naszym serwerze Discord. Dostęp jest **bezpłatny i bez zobowiązań**. :white_check_mark: [Dołącz teraz](https://devmentor.pl/discord) do naszej społeczności!*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krystian-Bak/practice-js-api-and-fetch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Krystian-Bak/practice-js-api-and-fetch/issues"
+  },
+  "homepage": "https://github.com/Krystian-Bak/practice-js-api-and-fetch#readme"
+}
