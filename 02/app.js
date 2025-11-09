@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', MyInit);
+
+/*
 
 function init() {
     const divList = document.querySelectorAll('div');
@@ -29,4 +31,39 @@ function setBorderColorAsync(element, color, callback) {
     } else {
         alert('Paremetr ~element~ musi być prawidłowym elementem DOM');
     }
+}
+
+*/
+
+// Promise zamiast callbacka
+
+function setBorderColorAsyncSecound(element, color){
+
+     return new Promise((resolve, reject) => {
+
+        if(!element){
+           reject(new Error('div nie istnieje'))
+           return     
+        }
+
+     setTimeout(() => {
+            element.style.border = `5px solid ${color}`
+            element.style.borderRadius = `4px`
+            console.log(`Kolor ustawiony na ${color}`)
+            resolve()
+
+        }, 1000 )
+    })
+}
+
+function MyInit(){
+
+    const divList = document.querySelectorAll('div')
+
+    setBorderColorAsyncSecound(divList[0], 'red')
+
+    .then(() => setBorderColorAsyncSecound(divList[1], 'blue'))
+    .then(() => setBorderColorAsyncSecound(divList[2], 'green'))
+    .then(() => console.log('finish secound'))
+
 }
