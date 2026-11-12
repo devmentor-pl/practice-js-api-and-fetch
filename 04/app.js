@@ -25,13 +25,13 @@ function getWeatherForecast(lat, lon) {
     .catch((err) => console.error("Something went wrong:", err));
 }
 
-function showWeatherForecast(data) {
+function showWeatherForecast({ data }) {
   const weatherCity = document.querySelector(".weather__city");
   const weatherLatitude = document.querySelector(".weather__lat");
   const weatherLongitude = document.querySelector(".weather__lng");
   const weatherSummary = document.querySelector(".weather__summary");
   const weatherTemp = document.querySelector(".weather__temperature");
-  const weatherData = data.data[0];
+  const weatherData = data[0];
   weatherCity.innerText = weatherData.city_name;
   weatherTemp.innerText = weatherData.app_temp;
   weatherLatitude.innerText = weatherData.lat;
